@@ -12,12 +12,13 @@
 		"autoAudits": false,
 		"coverView": true,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false
+		"scopeDataCheck": false,
+    "checkSiteMap":false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.10.1",
 	"appid": "wx59cb695230d922d8",
-	"projectname": "FireShop",
+	"projectname": "helloword",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
