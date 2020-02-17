@@ -1,18 +1,29 @@
 // pages/home/home/home.js
+
+const server = require('../../../servers/base_server.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    topData: [
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 单个请求
+    server.getRequest("https://api.it120.cc/aca1c7ec5f68a84eed653a654ef4639e/banner/list", { "type": "top" }, (res) => {
+      this.setData({
+        topData: res.data
+      })
+    }, (err) => {
 
+    })
   },
 
   /**
@@ -62,5 +73,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  swiperChange: function (e) {
+    console.log(e.detail);
   }
+
+  
 })

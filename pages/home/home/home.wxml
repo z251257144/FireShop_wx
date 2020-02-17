@@ -1,2 +1,17 @@
 <!--pages/home/home/home.wxml-->
-<text>pages/home/home/home.wxml</text>
+
+<swiper indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#B4282D" bindchange="swiperChange">
+  <block wx:for="{{topData}}" wx:key="*this">
+    <swiper-item>
+      <view class="swiper-item-view">
+        <image class="swiper-item-view-image" src="{{item.picUrl}}"></image>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="first">
+  <text>ssdd</text>
+</view>
+
+<view style='background-color:#D8BFD8;width:100%;height:30px;'>外边距属性</view>

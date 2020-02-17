@@ -1,38 +1,46 @@
 {
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
   "pages": [
     "pages/home/home/home",
     "pages/category/category",
     "pages/member/member/member",
-    "pages/cart/cart",
-    "pages/helloword/helloword"
+    "pages/cart/cart"
   ],
-
   "tabBar": {
     "selectedColor": "#B4282D",
-    "list": [{
-      "pagePath": "pages/home/home/home",
-      "text": "主页",
-      "iconPath": "images/button_icons/home-off.png",
-      "selectedIconPath": "images/button_icons/home-on.png"
-    },
-    {
-      "pagePath": "pages/category/category",
-      "text": "目录",
-      "iconPath": "images/button_icons/menu-off.png",
-      "selectedIconPath": "images/button_icons/menu-on.png"
-    },
-    {
-      "pagePath": "pages/category/category",
-      "text": "购物车",
-      "iconPath": "images/button_icons/cart-off.png",
-      "selectedIconPath": "images/button_icons/cart-on.png"
-    },
-    {
-      "pagePath": "pages/category/category",
-      "text": "我的",
-      "iconPath": "images/button_icons/my-off.png",
-      "selectedIconPath": "images/button_icons/my-on.png"
-    }
+    "list": [
+      {
+        "pagePath": "pages/home/home/home",
+        "text": "主页",
+        "iconPath": "images/button_icons/home-off.png",
+        "selectedIconPath": "images/button_icons/home-on.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "目录",
+        "iconPath": "images/button_icons/menu-off.png",
+        "selectedIconPath": "images/button_icons/menu-on.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "购物车",
+        "iconPath": "images/button_icons/cart-off.png",
+        "selectedIconPath": "images/button_icons/cart-on.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "我的",
+        "iconPath": "images/button_icons/my-off.png",
+        "selectedIconPath": "images/button_icons/my-on.png"
+      }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap13.json"
 }

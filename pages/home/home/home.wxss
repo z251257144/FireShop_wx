@@ -1,1 +1,18 @@
 /* pages/home/home/home.wxss */
+
+/* container */
+.first {
+  width: 100%;
+  height: 88rpx;
+  background-color: burlywood
+}
+
+.swiper-item-view {
+  width: 100%;
+  background: blanchedalmond
+}
+
+.swiper-item-view-image {
+  width: 100%;
+  /* background: blanchedalmond */
+}
