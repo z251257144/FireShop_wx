@@ -1,6 +1,6 @@
 // pages/home/home/home.js
 
-const server = require('../../../servers/base_server.js');
+const server = require('../../../servers/home_server.js')
 
 Page({
 
@@ -8,21 +8,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topData: [
-    ]
+    topData: [],
+    saleData: [],
+    hotData: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // 单个请求
-    server.getRequest("https://api.it120.cc/aca1c7ec5f68a84eed653a654ef4639e/banner/list", { "type": "top" }, (res) => {
+  onLoad: function(options) {
+    // 获取轮播图数据
+    server.fetchTopData((res) => {
       this.setData({
         topData: res.data
       })
-    }, (err) => {
+    })
 
+    // 获取Sale数据  
+    server.fetchSaleData((res) => {
+      this.setData({
+        saleData: res.data
+      })
+    })
+
+    // 获取热门活动数据
+    server.fetchHotData((res) => {
+      this.setData({
+        hotData: res.data
+      })
     })
   },
 

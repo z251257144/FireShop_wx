@@ -1,10 +1,7 @@
 /* pages/home/home/home.wxss */
 
-/* container */
-.first {
-  width: 100%;
-  height: 88rpx;
-  background-color: burlywood
+page {
+  background-color: #F2F1F1;
 }
 
 .swiper-item-view {
@@ -16,3 +13,39 @@
   width: 100%;
   /* background: blanchedalmond */
 }
+
+.sale-view {
+  height: 200rpx;
+  flex-direction: row;
+  display: flex;
+  margin: 10px 0;
+  background-color: #ffffff;
+  justify-content: space-around;
+}
+
+.sale-item-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sale-item-view-image {
+  width: 92rpx;
+  height: 92rpx;
+  padding: 30rpx 0 15rpx 0;
+}
+
+.hot-view {
+  flex-direction: row;
+  display: flex;
+  /* margin: 10px 0; */
+  background-color: #ffffff;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hot-item-view {
+  width: 50%;
+  height: 280rpx;
+}
+

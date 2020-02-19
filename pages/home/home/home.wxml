@@ -10,8 +10,18 @@
   </block>
 </swiper>
 
-<view class="first">
-  <text>ssdd</text>
+<view class="sale-view">
+  <block wx:for="{{saleData}}"> 
+    <view class="sale-item-view">
+      <image class="sale-item-view-image" src="{{item.picUrl}}"></image>
+      <text>{{item.title}}</text>
+    </view>
+  </block>
 </view>
 
-<view style='background-color:#D8BFD8;width:100%;height:30px;'>外边距属性</view>
+<view class="hot-view">
+  <block wx:for="{{hotData}}"> 
+    <image class="hot-item-view" src="{{item.picUrl}}"></image>
+  </block>
+</view>
+

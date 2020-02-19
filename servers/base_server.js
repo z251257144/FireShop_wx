@@ -1,6 +1,8 @@
 
 const baseUrl = 'https://api.it120.cc';
 
+const appKey = 'aca1c7ec5f68a84eed653a654ef4639e';
+
 /**
  * 请求头
  */
@@ -49,6 +51,11 @@ function get(url, params, onSuccess, onFailed) {
 
 function request(url, params, method, onSuccess, onFailed) {
   console.log('请求url：' + url);
+
+  if (url.indexOf("http") !== 0) {
+    url = baseUrl + "/" + appKey + "/" + url
+    console.log(url);
+  }
 
   wx.request({
     url: url,
