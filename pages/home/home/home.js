@@ -1,6 +1,7 @@
 // pages/home/home/home.js
 
 const server = require('../../../servers/home_server.js')
+const consts = require('../../../utils/consts.js')
 
 Page({
 
@@ -88,8 +89,40 @@ Page({
 
   },
 
-  swiperChange: function (e) {
-    console.log(e.detail);
+  // 轮播图点击
+  swiperTap: function (e) {
+    var index = e.currentTarget.id;
+    var data = this.data.topData[index];
+    this.chechData(data);
+  },
+
+  // 功能界面点击
+  saleViewTap: function (e) {
+    var index = e.currentTarget.id;
+    var data = this.data.saleData[index];
+    console.log(data);
+  },
+  
+  // 热门活动界面点击
+  hotViewTap: function (e) {
+    var index = e.currentTarget.id;
+    var data = this.data.hotData[index];
+    console.log(data);
+  },
+
+  chechData: function (data) {
+    if (consts.home_navigate_goods_detail == data.url) {
+      this.showGoodsDetail(data.remark);
+    }
+
+    
+  },
+
+  showGoodsDetail: function (id) {
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/goods/goods_detail',
+    })
   }
 
   

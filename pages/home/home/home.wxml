@@ -1,27 +1,30 @@
 <!--pages/home/home/home.wxml-->
 
-<swiper indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#B4282D" bindchange="swiperChange">
-  <block wx:for="{{topData}}" wx:key="*this">
+<!-- 轮播图 -->
+<swiper indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#B4282D" autoplay="true">
+  <block wx:for="{{topData}}" wx:key="index">
     <swiper-item>
-      <view class="swiper-item-view">
+      <view class="swiper-item-view" bindtap="swiperTap" id="{{index}}">
         <image class="swiper-item-view-image" src="{{item.picUrl}}"></image>
       </view>
     </swiper-item>
   </block>
 </swiper>
 
+<!-- 功能界面 -->
 <view class="sale-view">
-  <block wx:for="{{saleData}}"> 
-    <view class="sale-item-view">
+  <block wx:for="{{saleData}}" wx:key="index"> 
+    <view class="sale-item-view" bindtap="saleViewTap" id="{{index}}">
       <image class="sale-item-view-image" src="{{item.picUrl}}"></image>
       <text>{{item.title}}</text>
     </view>
   </block>
 </view>
 
+<!-- 热门活动 -->
 <view class="hot-view">
-  <block wx:for="{{hotData}}"> 
-    <image class="hot-item-view" src="{{item.picUrl}}"></image>
+  <block wx:for="{{hotData}}" wx:key="index">
+    <image class="hot-item-view" bindtap="hotViewTap" id="{{index}}" src="{{item.picUrl}}"></image>
   </block>
 </view>
 

@@ -11,7 +11,8 @@
     "pages/home/home/home",
     "pages/category/category",
     "pages/member/member/member",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/goods/goods_detail"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",

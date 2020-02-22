@@ -1,0 +1,68 @@
+/* pages/goods/goods_detail.wxss */
+
+page {
+  background-color: #F5F5F5
+}
+
+.top-image  {
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.top-image-item  {
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.info {
+  background-color: #FAFAFA;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-characteristic {
+  color: rgb(121, 114, 114);
+  font-size: 26rpx;
+  padding: 12rpx 0 12rpx 0;
+}
+
+.info-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info-minPrice {
+  color: #B4282D;
+  font-size: 32rpx;
+}
+
+.info-originalPrice {
+  color: rgb(121, 114, 114);
+  font-size: 32rpx;
+  padding: 0 0 0 20rpx;
+  text-decoration: line-through;
+}
+
+.info-number {
+  color: rgb(121, 114, 114);
+  font-size: 26rpx;
+}
+
+.property {
+  margin: 20rpx 0;
+  padding: 0 30rpx;
+  height: 92rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  /* justify-items: center; */
+}
+
+.property-text {
+  color: #000;
+  font-size: 28rpx;
+  
+}
+

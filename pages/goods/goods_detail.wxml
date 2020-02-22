@@ -1,0 +1,38 @@
+<!--pages/goods/goods_detail.wxml-->
+
+<!-- 商品大图 -->
+<swiper class="top-image-item" autoplay="true" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#B4282D">
+  <block wx:for="{{pics}}" wx:key="index"> 
+    <swiper-item>
+      <image src="{{item.pic}}" class="top-image-item"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="info">
+  <text>{{basicInfo.name}}</text>
+  <text class="info-characteristic" >{{basicInfo.characteristic}}</text>
+
+  <view class="info-price">
+    <view style="display: flex; flex-direction: row;">
+      <text class="info-minPrice">￥{{basicInfo.minPrice}}</text>
+      <text class="info-originalPrice">{{basicInfo.originalPrice}}</text>  
+    </view>
+    <text class="info-number">已售:{{basicInfo.stores}}</text>
+  </view>
+</view>
+
+<view class="property">
+  <text class="property-text">选择规格：颜色</text>
+</view>
+
+<view class="segment">
+  <view>
+    <text class="property-text">选择规格：颜色</text>
+  </view>
+
+  <view>
+    <text class="property-text">选择规格：颜色</text>
+  </view>
+</view>
+
