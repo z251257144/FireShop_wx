@@ -26,6 +26,8 @@
   <text class="property-text">选择规格：颜色</text>
 </view>
 
+<van-button type="primary">按钮</van-button>
+
 <view class="segment">
   <view>
     <text class="property-text">选择规格：颜色</text>

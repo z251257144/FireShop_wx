@@ -1,0 +1,22 @@
+{
+  "name": "fire_shop",
+  "version": "1.0.0",
+  "description": "今日聚惠是一款为用户提供服务和福利的平台，让百姓享受快捷方便的购物体验的同时，力求提供完美服务和超多福利。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z251257144/FireShop_wx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/z251257144/FireShop_wx/issues"
+  },
+  "homepage": "https://github.com/z251257144/FireShop_wx#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.0.5"
+  }
+}
