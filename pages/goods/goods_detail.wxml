@@ -26,15 +26,38 @@
   <text class="property-text">选择规格：颜色</text>
 </view>
 
-<van-button type="primary">按钮</van-button>
+<van-tabs active="{{active}}" bind:change="onChange" >
+  <van-tab title="商品介绍">
+    <rich-text nodes="{{content}}"></rich-text>
+  </van-tab>
+  <van-tab title="商品评价"></van-tab>
+</van-tabs>
 
-<view class="segment">
-  <view>
-    <text class="property-text">选择规格：颜色</text>
-  </view>
+<view style="height: {{safe_bottom_height+96}}rpx"></view>
 
-  <view>
-    <text class="property-text">选择规格：颜色</text>
+<view class="bottom_bar" style="height:{{safe_bottom_height+96}}rpx; pading-bottom: {{safe_bottom_height}}rpx">
+  <view class="bottom-bar-content">
+
+    <!-- 购物车按钮 -->
+    <view class="bottom-bar-cart">
+      <image src="../../images/goods/shopping_cart.png" style="width: 40rpx; height: 40rpx;"></image>
+    </view>
+
+    <!-- 收藏按钮 -->
+    <view class="bottom-bar-cart">
+      <image src="{{goods_collect ? '../../images/goods/goods_collect_checked.png' : '../../images/goods/goods_collect.png'}}" style="width: 40rpx; height: 40rpx;"></image>
+    </view>
+
+    <!-- 收藏按钮 -->
+    <view class="bottom-bar-buy">
+      <text style="color: #fff;">立即购买</text>
+    </view>
+
+    <!-- 加入购物车按钮 -->
+    <view class="bottom-bar-buy" style="background-color: #B4262C;">
+      <text style="color: #fff;">加入购物车</text>
+    </view>
+
   </view>
 </view>
 

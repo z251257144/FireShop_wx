@@ -12,10 +12,12 @@
     "pages/category/category",
     "pages/member/member/member",
     "pages/cart/cart",
-    "pages/goods/goods_detail"
+    "pages/goods/goods_detail",
+    "pages/member/login/login"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",
+    "current": 3,
     "list": [
       {
         "pagePath": "pages/home/home/home",
@@ -36,7 +38,7 @@
         "selectedIconPath": "images/button_icons/cart-on.png"
       },
       {
-        "pagePath": "pages/category/category",
+        "pagePath": "pages/member/member/member",
         "text": "我的",
         "iconPath": "images/button_icons/my-off.png",
         "selectedIconPath": "images/button_icons/my-on.png"

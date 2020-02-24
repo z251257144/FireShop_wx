@@ -2,6 +2,7 @@
 
 const server = require('../../../servers/home_server.js')
 const consts = require('../../../utils/consts.js')
+const pageUrls = require('../../../utils/page_url.js')
 
 Page({
 
@@ -93,6 +94,7 @@ Page({
   swiperTap: function (e) {
     var index = e.currentTarget.id;
     var data = this.data.topData[index];
+    console.log(data);
     this.chechData(data);
   },
 
@@ -111,17 +113,19 @@ Page({
   },
 
   chechData: function (data) {
-    if (consts.home_navigate_goods_detail == data.url) {
+    if (consts.home_navigate_urls.goods_detail == data.linkUrl) {
       this.showGoodsDetail(data.remark);
     }
-
+    else {
+      console.log("未找到对应URL：" + data.linkUrl);
+    }
     
   },
 
   showGoodsDetail: function (id) {
     console.log(id);
     wx.navigateTo({
-      url: '/pages/goods/goods_detail',
+      url: pageUrls.goods.detail,
     })
   }
 

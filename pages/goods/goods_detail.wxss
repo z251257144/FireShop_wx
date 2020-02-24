@@ -66,3 +66,37 @@ page {
   
 }
 
+.bottom_bar {
+  height: 96rpx;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  
+}
+.bottom-bar-content {
+  background-color: #fff; 
+  height:96rpx;
+  display: flex;
+  flex-direction: row;
+  border-top: 1rpx solid #CFCFCF;
+}
+
+.bottom-bar-cart {
+  width: 120rpx; 
+  height: 96rpx;
+  border-right: 1rpx solid #CFCFCF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-bar-buy {
+  flex: 1;
+  height: 96rpx;
+  background-color: #F07B21;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

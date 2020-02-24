@@ -1,6 +1,9 @@
 // pages/goods/goods_detail.js
 
 const server = require('../../servers/goods_server.js')
+const consts = require('../../utils/consts.js')
+
+var app = getApp();
 
 Page({
 
@@ -11,12 +14,24 @@ Page({
     basicInfo: null,
     content: null,
     pics: null,
+
+    // 商品收藏标识
+    goods_collect: false,
+
+    active: 0,
+
+    safe_bottom_height: 0,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      safe_bottom_height: consts.safe_bottom_height(),
+    })
+    
     this.fetchGoodsDetail();
   },
 
@@ -72,9 +87,13 @@ Page({
   // 获取商品详情数据  
   fetchGoodsDetail: function () {
     server.fetchGoodsDetail("150795",(res) => {
+
+      var tempContent = res.data.content;
+      tempContent = tempContent.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
+
       this.setData({
         basicInfo: res.data.basicInfo,
-        content: res.data.content,
+        content: tempContent,
         pics: res.data.pics,
       })
     }, (error) => {

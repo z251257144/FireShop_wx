@@ -1,2 +1,42 @@
 <!--pages/member/member/member.wxml-->
-<text>pages/member/member/member.wxml</text>
+
+<!-- 用户信息界面 -->
+<view class="head-user" style="background-image: url('https://dcdn.it120.cc/2020/02/24/2977a679-2498-41ef-829a-58cdb7931931.jpg');">
+  <view class="head-user-button" bindtap="{{isLogin ? 'userLogout' : 'userLogin'}}">
+    <image src="/images/member/my_account0.png" style="width: 132rpx; height: 132rpx; padding: 0 0 20rpx 0 ;"></image>
+
+    <text class="head-user-name">立即登录</text>
+  </view>
+</view>
+
+<!-- 订单入口界面 -->
+
+<view class="order">
+  <view class="order-head">
+    <image src="/images/member/profile_dfunding.png" style="width: 40rpx; height: 40rpx; padding-left: 30rpx;"></image>
+    <text style="padding-left: 16rpx; color: #212121; font-size: 36rpx;">我的订单</text>
+  </view>
+
+  <view class="order-list">
+    <block wx:for="{{orderInfo}}" wx:key="index">
+      <view class="order-list-item" bindtap="orderViewTap" id="{{index}}">
+        <image src="{{item.icon}}" style="width: 40rpx; height: 40rpx; padding: 40rpx 0 20rpx 0;"></image>
+        <text style="color: #212121;">{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 功能入口界面 -->
+<view class="function-list">
+  <block wx:for="{{functionInfo}}" wx:key="index">
+    <view class="function-list-item" bindtap="orderViewTap" id="{{index}}">
+      <image src="{{item.icon}}" style="width: 60rpx; height: 60rpx; padding: 40rpx 0 20rpx 0;"></image>
+      <text style="color: #212121;">{{item.title}}</text>
+    </view>
+  </block>
+
+  <view class="function-list-line"></view>
+  
+</view>
+

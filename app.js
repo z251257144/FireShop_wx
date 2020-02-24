@@ -1,5 +1,6 @@
-App({
+const consts = require('utils/consts.js');
 
+App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
@@ -12,6 +13,15 @@ App({
    */
   onShow: function (options) {
     
+    wx.getSystemInfo({
+      success: res => {
+        let modelmes = res.model;
+        console.log(modelmes);
+        if (modelmes.search('iPhone X') != -1 || modelmes.search('iPhone 11') != -1) {
+          consts.is_iphone_x_11 = true;
+        }
+      }
+    })
   },
 
   /**
