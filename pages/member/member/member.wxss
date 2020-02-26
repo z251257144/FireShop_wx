@@ -1,7 +1,7 @@
 /* pages/member/member/member.wxss */
 
 page {
-  background-color: #F0F1F2
+  background-color: #F4F5F6
 }
 
 .head-user {
@@ -26,6 +26,7 @@ page {
 .head-user-name {
   color: #fff;
   font-size: 36;
+  padding-top: 24rpx;
 }
 
 .order {
@@ -38,7 +39,7 @@ page {
 .order-head {
   width: 100%;
   height: 102rpx;
-  border-bottom: 1rpx solid #CFCFCF;
+  border-bottom: 1rpx solid #F3F3F3;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,7 +68,8 @@ page {
   flex-wrap: wrap;
   margin: 32rpx 0 0 0;
   background-color: #fff;
-  border-top: 1rpx solid #CFCFCF;
+  border-top: 1rpx solid #F3F3F3;
+  position: relative;
 }
 
 .function-list-item {
@@ -77,16 +79,14 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1rpx solid #CFCFCF;
+  border-bottom: 1rpx solid #F3F3F3;
 }
 
 .function-list-line {
   height: 500rpx;
-  background-color: #CFCFCF;
-  position: fixed;
+  background-color: #F3F3F3;
+  position: absolute;
   width: 1rpx;
   top: 0;
-  left: 250rpx;
-  z-index: 100;
 }
 

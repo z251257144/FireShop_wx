@@ -69,9 +69,9 @@ function request(url, params, method, onSuccess, onFailed) {
       if (res.data) {
         /** start 根据需求 接口的返回状态码进行处理 */
         if (res.statusCode == 200) {
-          onSuccess(res.data); //request success
+          onSuccess(res.data['data']); //request success
         } else {
-          onFailed(res.data.message); //request failed
+          onFailed(res.data['msg']); //request failed
         }
         /** end 处理结束*/
       }

@@ -1,1 +1,46 @@
 /* pages/member/login/login.wxss */
+
+page {
+  background-color: #F4F5F6
+}
+
+.form-content {
+  width: 100%;
+  height: 200rpx;
+  background-color: #fff;
+  margin-top: 40rpx;
+  border-bottom: 1rpx solid #F3F3F3;
+  border-top: 1rpx solid #F3F3F3;
+  margin-bottom: 60rpx;
+}
+
+.mobile-content {
+  height: 100rpx;
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mobile-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.login-button {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #B4282D;
+  color: #fff;
+  border: null;
+}
+
+.easy-login-button {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #B4282D;
+  color: #fff;
+  border: null;
+  margin-top: 40rpx;
+}

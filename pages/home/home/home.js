@@ -22,21 +22,21 @@ Page({
     // 获取轮播图数据
     server.fetchTopData((res) => {
       this.setData({
-        topData: res.data
+        topData: res
       })
     })
 
     // 获取Sale数据  
     server.fetchSaleData((res) => {
       this.setData({
-        saleData: res.data
+        saleData: res
       })
     })
 
     // 获取热门活动数据
     server.fetchHotData((res) => {
       this.setData({
-        hotData: res.data
+        hotData: res
       })
     })
   },
@@ -122,10 +122,11 @@ Page({
     
   },
 
+  // 显示商品详情
   showGoodsDetail: function (id) {
     console.log(id);
     wx.navigateTo({
-      url: pageUrls.goods.detail,
+      url: pageUrls.goods.detail + "?googsId=" + id,
     })
   }
 

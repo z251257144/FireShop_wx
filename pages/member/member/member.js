@@ -1,54 +1,11 @@
 // pages/member/member/member.js
 
 const pageUrls = require('../../../utils/page_url.js')
+const server = require('../../../servers/user_server.js')
+const userModel = require('../../../model/login_user_model.js')
+const consts = require('../../../utils/consts.js')
 
-const orderInfo = [
-  {
-    title: "待付款",
-    icon: "/images/member/orderform_pay.png",
-  },
-  {
-    title: "待发货",
-    icon: "/images/member/orderform_ship.png",
-  },
-  {
-    title: "待收货",
-    icon: "/images/member/delivering.png",
-  },
-  {
-    title: "待评价",
-    icon: "/images/member/orderform.png",
-  }
-];
-
-const functionInfo = [
-  {
-    title: "我的余额",
-    value: "0 元",
-    icon: "/images/member/profile_tegral.png",
-  },
-  {
-    title: "我的积分",
-    value: "3 积分",
-    icon: "/images/member/jifen.png",
-  },
-  {
-    title: "我的礼券",
-    icon: "/images/member/profile_ticket.png",
-  },
-  {
-    title: "我的收藏",
-    icon: "/images/member/profile_collection.png",
-  },
-  {
-    title: "我的地址",
-    icon: "/images/member/profile_address.png",
-  },
-  {
-    title: "",
-    icon: "",
-  }
-];
+const app = getApp();
 
 Page({
 
@@ -56,16 +13,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLogin: false,
-    orderInfo: orderInfo,
-    functionInfo: functionInfo,
+    user: app.globalData.user,
+    avatarUrl: "/images/member/my_account0.png",
+    orderInfo: consts.orderInfo,
+    functionInfo: consts.functionInfo,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -79,7 +37,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      user: app.globalData.user,
+    });
   },
 
   /**
@@ -96,31 +56,8 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   // 登录
   userLogin: function (e) {
-    console.log(e);
-
     wx.navigateTo({
       url: pageUrls.user.login,
     })
@@ -128,11 +65,43 @@ Page({
 
   // 登出
   userLogout: function (e) {
-    console.log(e);
+    var that = this;
+    wx.showModal({
+      title: '是否退出登录？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.clearLoginInfo();
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  // 清除用户缓存
+  clearLoginInfo: function () {
+    let model = userModel.clearUser;
+    app.globalData.user = model;
+    this.setData({
+      user: app.globalData.user,
+    });
+    wx.removeStorage({
+      key: consts.storage_keys.token,
+      success: function(res) {},
+    })
   },
 
   // 我的订单点击事件
   orderViewTap: function (e) {
+    console.log(e);
 
+    
+
+  },
+
+  // 菜单功能点击事件
+  functionViewTap: function (e) {
+    console.log(e);
   }
 })

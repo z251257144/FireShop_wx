@@ -1,2 +1,21 @@
 <!--pages/member/login/login.wxml-->
-<text>pages/member/login/login.wxml</text>
+<form bindsubmit="mobileLogin">
+  <view class="form-content">
+    <view class="mobile-content" style="border-bottom: 1rpx solid #F3F3F3;">
+      <image class="mobile-icon" src="/images/member/login_icon_member.png"></image>
+      <input type="number" name="mobile" placeholder="手机号" maxlength="11" confirm-type="next" bindinput="mobileInput"/>
+    </view>
+    
+    <view class="mobile-content">
+      <image class="mobile-icon" src="/images/member/login_icon_password.png"></image>
+      <input password type="text" name="password" password="true" placeholder="密码" maxlength="20"  bindinput="passwordInput"/>
+    </view>
+  </view>
+ 
+  <view >
+    <button class="login-button" formType="submit">登录</button>
+  </view>
+
+</form>
+
+<button class="easy-login-button" bindtap="showAuto">微信快速登录</button>

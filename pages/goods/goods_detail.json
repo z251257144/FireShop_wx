@@ -3,5 +3,6 @@
     "van-tab": "@vant/weapp/tab",
     "van-tabs": "@vant/weapp/tabs",
     "van-button": "@vant/weapp/button"
-  }
+  },
+  "navigationBarTitleText": "商品详情"
 }

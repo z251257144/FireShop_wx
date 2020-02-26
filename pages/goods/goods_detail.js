@@ -11,6 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    googsId: null,
+
     basicInfo: null,
     content: null,
     pics: null,
@@ -18,9 +20,10 @@ Page({
     // 商品收藏标识
     goods_collect: false,
 
+    // 切换标识
     active: 0,
 
-    safe_bottom_height: 0,
+    safe_bottom_height: consts.safe_bottom_height(),
 
   },
 
@@ -28,10 +31,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      safe_bottom_height: consts.safe_bottom_height(),
-    })
-    
+    console.log(options.googsId);
+    this.data.googsId = options.googsId;
     this.fetchGoodsDetail();
   },
 
@@ -86,15 +87,15 @@ Page({
 
   // 获取商品详情数据  
   fetchGoodsDetail: function () {
-    server.fetchGoodsDetail("150795",(res) => {
+    server.fetchGoodsDetail(this.data.googsId,(res) => {
 
-      var tempContent = res.data.content;
+      var tempContent = res.content;
       tempContent = tempContent.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
 
       this.setData({
-        basicInfo: res.data.basicInfo,
+        basicInfo: res.basicInfo,
         content: tempContent,
-        pics: res.data.pics,
+        pics: res.pics,
       })
     }, (error) => {
       console.log(error);
