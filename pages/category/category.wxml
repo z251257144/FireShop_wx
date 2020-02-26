@@ -1,2 +1,22 @@
 <!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+
+
+<view class="content">
+  <van-sidebar active-key="{{ activeKey }}" bind:change="leftChange">
+    <block wx:for="{{leftCategoryList}}" wx:key="index"> 
+      <van-sidebar-item title="{{item.name}}" />
+    </block>
+  </van-sidebar>
+
+
+  <van-grid column-num="3" style="flex:1;" border="false">
+    <block wx:for="{{rightCategoryList}}" wx:key="index"> 
+      <van-grid-item icon="photo-o" text="{{item.name}}" style="overflow: hidden; text-overflow: ellipsis;"/>
+    </block>
+    
+  </van-grid>
+
+
+</view>
+
+

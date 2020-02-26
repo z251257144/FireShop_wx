@@ -8,6 +8,15 @@ function fetchGoodsDetail(id, onSuccess, onFailed) {
   base_server.getRequest("shop/goods/detail", param, onSuccess, onFailed);
 }
 
+/**
+ * 获取商品类别
+ */
+function fetchCategoryList(onSuccess, onFailed) {
+  var param = {};
+  base_server.getRequest("shop/goods/category/all", param, onSuccess, onFailed);
+}
+
 module.exports = {
-  fetchGoodsDetail: fetchGoodsDetail
+  fetchGoodsDetail: fetchGoodsDetail,
+  fetchCategoryList: fetchCategoryList
 }

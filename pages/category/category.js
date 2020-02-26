@@ -1,18 +1,23 @@
 // pages/category/category.js
+
+const server = require('../../servers/goods_server.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    allCategoryList: null,
+    leftCategoryList: null,
+    rightCategoryList: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.fetchCategoryList();
   },
 
   /**
@@ -36,31 +41,56 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  // 获取商品类别
+  fetchCategoryList: function () {
 
+    var that = this;
+    server.fetchCategoryList(
+      (res) => {
+        that.parseCategory(res);
+      },
+      (err) => {
+
+      }
+    );
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  // 处理目录数据
+  parseCategory: function (list) {
+    this.data.allCategoryList = list;
+    var tempList = [];
+    for (let i = 0; i < list.length; i++) {
+      var item = list[i];
+      if (item.level == 1) {
+        tempList.push(item);
+      }
+    }
+    this.setData({
+      leftCategoryList: tempList,
+    });
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+  // 一级目录点击
+  leftChange: function (e) {
+    
 
-  },
+    var leftItem = this.data.leftCategoryList[e.detail];
+    var tempList = [];
+    for (let i = 0; i < this.data.allCategoryList.length; i++) {
+      var item = this.data.allCategoryList[i];
+      if (item.level == 2 && item.pid == leftItem.id) {
+        tempList.push(item);
+      }
+    }
+    this.setData({
+      rightCategoryList: tempList,
+    });
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    wx.showToast({
+      icon: 'none',
+      title: `切换至第${e.detail}项`
+    });
   }
+
+
 })

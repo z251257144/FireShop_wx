@@ -1,1 +1,10 @@
 /* pages/category/category.wxss */
+
+page {
+  background-color: #F4F5F6;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
