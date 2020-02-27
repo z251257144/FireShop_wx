@@ -2,21 +2,34 @@
 
 
 <view class="content">
-  <van-sidebar active-key="{{ activeKey }}" bind:change="leftChange">
-    <block wx:for="{{leftCategoryList}}" wx:key="index"> 
-      <van-sidebar-item title="{{item.name}}" />
+
+    <!-- 功能入口界面 -->
+  <view class="left-list">
+    <block wx:for="{{leftCategoryList}}" wx:key="index">
+      <view class="left-list-item" bindtap="leftChange" id="{{index}}">
+        <view class="left-list-border" style="border-left: 6rpx solid {{leftIndex == index ? '#B4282D' : '#fff'}}">
+          <text style="color: #323233; font-size: 32rpx;">{{item.name}}</text>
+        </view>
+      </view>
     </block>
-  </van-sidebar>
+  </view>
 
+  <!-- 功能入口界面 -->
+  <scroll-view class="right-list" scroll-y="true" style="height: 1280rpx;">
+    <image src="{{leftCategoryList[leftIndex].icon}}" style="width: 510rpx; height: 210rpx; padding: 30rpx 30rpx 0rpx 30rpx;"></image>
 
-  <van-grid column-num="3" style="flex:1;" border="false">
-    <block wx:for="{{rightCategoryList}}" wx:key="index"> 
-      <van-grid-item icon="photo-o" text="{{item.name}}" style="overflow: hidden; text-overflow: ellipsis;"/>
-    </block>
-    
-  </van-grid>
-
+    <view class="right-list" scroll-y="true" >
+      <block wx:for="{{rightCategoryList}}" wx:key="index">
+        <view class="right-list-item" bindtap="functionViewTap" id="{{index}}">
+          <image src="{{item.icon}}" style="width: 60rpx; height: 60rpx; padding: 40rpx 0 20rpx 0;"></image>
+          <text style="color: #212121; font-size: 32rpx;">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
 
 </view>
+
+<view class="left-list-line"></view>
 
 

@@ -11,6 +11,8 @@ Page({
     allCategoryList: null,
     leftCategoryList: null,
     rightCategoryList: null,
+
+    leftIndex: 0,
   },
 
   /**
@@ -68,13 +70,19 @@ Page({
     this.setData({
       leftCategoryList: tempList,
     });
+
+    this.leftChangeData(0);
   },
 
   // 一级目录点击
   leftChange: function (e) {
-    
+    var index = e.currentTarget.id;
+    this.leftChangeData(index);
+  },
 
-    var leftItem = this.data.leftCategoryList[e.detail];
+  // 一级目录点击
+  leftChangeData: function (index) {
+    var leftItem = this.data.leftCategoryList[index];
     var tempList = [];
     for (let i = 0; i < this.data.allCategoryList.length; i++) {
       var item = this.data.allCategoryList[i];
@@ -83,12 +91,8 @@ Page({
       }
     }
     this.setData({
+      leftIndex: index,
       rightCategoryList: tempList,
-    });
-
-    wx.showToast({
-      icon: 'none',
-      title: `切换至第${e.detail}项`
     });
   }
 

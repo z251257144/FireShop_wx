@@ -69,7 +69,7 @@ page {
   margin: 32rpx 0 0 0;
   background-color: #fff;
   border-top: 1rpx solid #F3F3F3;
-  position: relative;
+  /* position: relative; */
 }
 
 .function-list-item {
@@ -82,11 +82,11 @@ page {
   border-bottom: 1rpx solid #F3F3F3;
 }
 
-.function-list-line {
+/* .function-list-line {
   height: 500rpx;
   background-color: #F3F3F3;
   position: absolute;
   width: 1rpx;
   top: 0;
-}
+} */
 
