@@ -20,7 +20,7 @@
 
     <view class="right-list" scroll-y="true" >
       <block wx:for="{{rightCategoryList}}" wx:key="index">
-        <view class="right-list-item" bindtap="functionViewTap" id="{{index}}">
+        <view class="right-list-item" bindtap="rightCategoryTap" id="{{index}}">
           <image src="{{item.icon}}" style="width: 60rpx; height: 60rpx; padding: 40rpx 0 20rpx 0;"></image>
           <text style="color: #212121; font-size: 32rpx;">{{item.name}}</text>
         </view>

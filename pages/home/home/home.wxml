@@ -28,3 +28,19 @@
   </block>
 </view>
 
+<!-- 推荐商品 -->
+<view class="recomend-head">
+  <view class="recomend-head-line"></view>
+  <text style="padding: 0 20rpx;">人气推荐</text>
+  <view class="recomend-head-line"></view>
+</view>
+
+<view class="recomend-list" >
+  <view class="recomend-list-item" wx:for="{{goodsList}}" bindtap="recomendViewTap" id="{{index}}">
+    <image src="{{item.pic}}" style="width:330rpx; height:330rpx; border-radius: 10rpx"></image>
+    <text class="recomend-list-item-name">{{item.name}}</text>
+    <text class="recomend-list-item-characteristic">{{item.characteristic}}</text>
+    <text class="recomend-list-item-price">￥{{item.minPrice}}</text>
+  </view>
+</view>
+

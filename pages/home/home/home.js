@@ -13,6 +13,8 @@ Page({
     topData: [],
     saleData: [],
     hotData: [],
+
+    goodsList: [],
   },
 
   /**
@@ -37,6 +39,13 @@ Page({
     server.fetchHotData((res) => {
       this.setData({
         hotData: res
+      })
+    })
+    
+    // 获取推荐商品
+    server.fetchGoodsList((res) => {
+      this.setData({
+        goodsList: res
       })
     })
   },
@@ -76,20 +85,6 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   // 轮播图点击
   swiperTap: function (e) {
     var index = e.currentTarget.id;
@@ -112,6 +107,15 @@ Page({
     console.log(data);
   },
 
+  // 推荐商品界面点击
+  recomendViewTap: function (e) {
+    var index = e.currentTarget.id;
+    var data = this.data.goodsList[index];
+    console.log(data);
+    this.showGoodsDetail(data.id);
+  },
+
+  // 检验数组格式
   chechData: function (data) {
     if (consts.home_navigate_urls.goods_detail == data.linkUrl) {
       this.showGoodsDetail(data.remark);

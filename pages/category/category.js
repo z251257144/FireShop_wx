@@ -80,7 +80,7 @@ Page({
     this.leftChangeData(index);
   },
 
-  // 一级目录点击
+  // 子目录数据处理
   leftChangeData: function (index) {
     var leftItem = this.data.leftCategoryList[index];
     var tempList = [];
@@ -94,6 +94,10 @@ Page({
       leftIndex: index,
       rightCategoryList: tempList,
     });
+  },
+
+  rightCategoryTap: function (e) {
+    
   }
 
 

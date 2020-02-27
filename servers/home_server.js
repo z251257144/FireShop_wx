@@ -29,8 +29,17 @@ function fetchBannerListData(type, onSuccess, onFailed) {
   base_server.getRequest("banner/list", param, onSuccess, onFailed);
 }
 
+/**
+ * 获取推荐商品 
+ */
+function fetchGoodsList(onSuccess, onFailed) {
+  var param = { "recommendStatus": "1", "pageSize": "20", "page": 0 };
+  base_server.getRequest("shop/goods/list", param, onSuccess, onFailed);
+}
+
 module.exports = {
   fetchTopData: fetchTopData,
   fetchSaleData: fetchSaleData,
-  fetchHotData: fetchHotData
+  fetchHotData: fetchHotData,
+  fetchGoodsList: fetchGoodsList
 }
