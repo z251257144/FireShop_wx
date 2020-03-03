@@ -22,6 +22,11 @@
       <view class="order-list-item" bindtap="orderViewTap" id="{{index}}">
         <image src="{{item.icon}}" style="width: 40rpx; height: 40rpx; padding: 40rpx 0 20rpx 0;"></image>
         <text style="color: #212121; font-size: 32rpx;">{{item.title}}</text>
+
+        <block wx:if="{{item.value != null && item.value > 0}}">
+          <view class='order-list-count'>{{item.value}}</view>
+        </block>
+        
       </view>
     </block>
   </view>

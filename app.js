@@ -57,7 +57,7 @@ App({
           (res) => {
             console.log("res = " + res);
             var model = userModel.loginUserFromJson(res.base);
-            model.token = token;
+            model.token = token.data;
             that.globalData.user = model;
             console.log("that.globalData.user = " + that.globalData.user.isLogin);
           },

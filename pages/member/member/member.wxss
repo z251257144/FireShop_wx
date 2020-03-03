@@ -59,6 +59,24 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.order-list-count {
+  height: 30rpx;
+  position: absolute;
+  right: 2rpx;
+  left: auto;
+  top: 10rpx;
+  padding: 0 0 4rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #B4282D;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 17rpx;
+  width: 30rpx;
 }
 
 .function-list {
@@ -69,7 +87,7 @@ page {
   margin: 32rpx 0 0 0;
   background-color: #fff;
   border-top: 1rpx solid #F3F3F3;
-  /* position: relative; */
+  position: relative;
 }
 
 .function-list-item {
@@ -82,11 +100,11 @@ page {
   border-bottom: 1rpx solid #F3F3F3;
 }
 
-/* .function-list-line {
+.function-list-line {
   height: 500rpx;
   background-color: #F3F3F3;
   position: absolute;
   width: 1rpx;
   top: 0;
-} */
+}
 

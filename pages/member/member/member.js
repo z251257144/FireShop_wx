@@ -17,6 +17,7 @@ Page({
     avatarUrl: "/images/member/my_account0.png",
     orderInfo: consts.orderInfo,
     functionInfo: consts.functionInfo,
+    orderCount: {}
   },
 
   /**
@@ -40,6 +41,7 @@ Page({
     this.setData({
       user: app.globalData.user,
     });
+    this.fetchOrderStatistics();
   },
 
   /**
@@ -54,6 +56,35 @@ Page({
    */
   onUnload: function () {
 
+  },
+
+  // 请求订单统计
+  fetchOrderStatistics: function () {
+    var isLogin = app.globalData.user.isLogin;
+    if (!isLogin) {
+      return;
+    }
+
+
+    var token = app.globalData.user.token;
+    var that = this;
+    server.fetchOrderStatistics(token,
+      function (res) {
+        for (let i = 0; i < consts.orderInfo.length; i++) {
+          var item = consts.orderInfo[i];
+          item.value = res[item.valueKey];
+          if (i == 0) {
+            item.value = 33;
+          }
+        }
+
+        that.setData({
+          orderInfo: consts.orderInfo
+        });
+
+        console.log(consts.orderInfo);
+      }  
+    );
   },
 
   // 登录
