@@ -13,7 +13,8 @@
     "pages/member/member/member",
     "pages/cart/cart",
     "pages/goods/goods_detail",
-    "pages/member/login/login"
+    "pages/member/login/login",
+    "pages/order/order_list/order_list"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",

@@ -73,8 +73,15 @@ Page({
         for (let i = 0; i < consts.orderInfo.length; i++) {
           var item = consts.orderInfo[i];
           item.value = res[item.valueKey];
-          if (i == 0) {
-            item.value = 33;
+
+          if (item.value < 10) {
+            item.valueWidth = "30rpx";
+          }
+          else if (item.value < 100) {
+            item.valueWidth = "45rpx";
+          }
+          else {
+            item.valueWidth = "60rpx";
           }
         }
 
@@ -123,16 +130,43 @@ Page({
     })
   },
 
+  // 显示全部订单
+  showAllOrder: function (e) {
+    if (this.checkUserLogin()) {
+      return;
+    }
+    
+    wx.navigateTo({
+      url: pageUrls.user.order_list,
+    })
+  },
+
   // 我的订单点击事件
   orderViewTap: function (e) {
-    console.log(e);
+    if (this.checkUserLogin()) {
+      return;
+    }
 
-    
-
+    wx.navigateTo({
+      url: pageUrls.user.order_list,
+    })
   },
 
   // 菜单功能点击事件
   functionViewTap: function (e) {
+    
     console.log(e);
+  },
+
+  // 检测用户是否登录，如果检测未登录，同时跳转到登录界面
+  checkUserLogin: function() {
+    var isLogin = app.globalData.user.isLogin;
+    if (!isLogin) {
+      wx.navigateTo({
+        url: pageUrls.user.login,
+      })
+    }
+
+    return !isLogin;
   }
 })

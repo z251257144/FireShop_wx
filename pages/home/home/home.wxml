@@ -36,7 +36,7 @@
 </view>
 
 <view class="recomend-list" >
-  <view class="recomend-list-item" wx:for="{{goodsList}}" bindtap="recomendViewTap" id="{{index}}">
+  <view class="recomend-list-item" wx:for="{{goodsList}}" wx:key="index" bindtap="recomendViewTap" id="{{index}}">
     <image src="{{item.pic}}" style="width:330rpx; height:330rpx; border-radius: 10rpx"></image>
     <text class="recomend-list-item-name">{{item.name}}</text>
     <text class="recomend-list-item-characteristic">{{item.characteristic}}</text>

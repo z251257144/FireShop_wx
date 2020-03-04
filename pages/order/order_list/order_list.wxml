@@ -1,0 +1,38 @@
+<!--pages/order/order_list/order_list.wxml-->
+<van-tabs active="{{orderTypeIndex}}" bind:change="orderTypeChanged">
+  <van-tab wx:for="{{orderTypeConfig}}" wx:key="index" title="{{item.title}}"></van-tab>
+</van-tabs>
+
+<block wx:if="{{orderList == null || orderList.length == 0}}">
+  <view class="order-no-data">
+    <image src="/images/order/no-order.png" style="width:108rpx; height:108rpx;"></image>
+    <text style="font-size: 26rpx;">暂无订单</text>
+  </view>
+</block>
+<block wx:else>
+  <view wx:for="{{orderList}}" wx:key="index" class="order-item">
+    <view class="order-item-head">
+      <view style="font-size: 24rpx;">{{item.orderNumber}}</view>
+      <view style="font-size: 24rpx;color: #B4282D;">{{item.statusStr}}</view>
+    </view>
+
+    <view class=".order-goods-list">
+      <image wx:for="{{item.goodsList}}" wx:for-item="goods" wx:key="index" class="order-goods-item" src="{{goods.pic}}">
+
+      </image>
+    </view>
+    
+    <view class="order-item-bottom">
+      <view style="font-size: 24rpx;">{{item.dateAdd}}</view>
+      <view style="display: flex;flex-direction: row;">
+        <view style="font-size: 24rpx; padding-top: 10rpx;">共{{item.goodsNumber}}件商品 合计:￥</view>
+        <view style="font-size: 36rpx;color: #B4282D;">{{item.amount}}</view>
+      </view>
+      
+    </view>
+    
+  </view>
+</block>
+
+
+

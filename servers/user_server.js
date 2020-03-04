@@ -36,9 +36,17 @@ function fetchOrderStatistics(token, onSuccess, onFailed) {
   base_server.postRequest("order/statistics", param, onSuccess, onFailed);
 }
 
+/**
+ * 订单列表
+ */
+function fetchOrderList(param, onSuccess, onFailed) { 
+  base_server.postRequest("order/list", param, onSuccess, onFailed);
+}
+
 module.exports = {
   fetchUserLogin: fetchUserLogin,
   fetchMobileLogin: fetchMobileLogin,
   fetchUserDetail: fetchUserDetail,
-  fetchOrderStatistics: fetchOrderStatistics
+  fetchOrderStatistics: fetchOrderStatistics,
+  fetchOrderList: fetchOrderList
 }

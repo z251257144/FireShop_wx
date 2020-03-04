@@ -12,9 +12,13 @@
 <!-- 订单入口界面 -->
 
 <view class="order">
-  <view class="order-head">
-    <image src="/images/member/profile_dfunding.png" style="width: 40rpx; height: 40rpx; padding-left: 30rpx;"></image>
-    <text style="padding-left: 16rpx; color: #212121; font-size: 32rpx;">我的订单</text>
+  <view class="order-head" bindtap="showAllOrder">
+    <view style="display: flex; align-items: center;">
+      <image src="/images/member/profile_dfunding.png" style="width: 40rpx; height: 40rpx;"></image>
+      <text style="padding-left: 16rpx; color: #212121; font-size: 32rpx;">我的订单</text>
+    </view>
+
+    <image src="/images/member/arrow-right.png" style="width: 20rpx; height: 37rpx;"></image>
   </view>
 
   <view class="order-list">
@@ -24,7 +28,7 @@
         <text style="color: #212121; font-size: 32rpx;">{{item.title}}</text>
 
         <block wx:if="{{item.value != null && item.value > 0}}">
-          <view class='order-list-count'>{{item.value}}</view>
+          <view class='order-list-count' style="width: {{item.valueWidth}}">{{item.value}}</view>
         </block>
         
       </view>

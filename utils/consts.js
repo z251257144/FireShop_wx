@@ -64,6 +64,31 @@ const functionInfo = [
   }
 ];
 
+// 订单列表状态配置
+const orderTypeConfig = [
+  {
+    title: "全部",
+    type: "",
+  },
+  {
+    title: "待付款",
+    type: "0",
+  },
+  {
+    title: "待发货",
+    type: "1",
+  },
+  {
+    title: "待收货",
+    type: "2",
+  },
+  {
+    title: "待评价",
+    type: "3",
+  }
+];
+
+
 
 const is_iphone_x_11 = false;
 
@@ -80,6 +105,7 @@ exports.home_navigate_urls = home_navigate_urls;
 exports.storage_keys = storage_keys;
 exports.orderInfo = orderInfo;
 exports.functionInfo = functionInfo;
+exports.orderTypeConfig = orderTypeConfig;
 
 exports.safe_bottom_height = safe_bottom_height;
 exports.safe_bottom_height_rpx = safe_bottom_height_rpx;

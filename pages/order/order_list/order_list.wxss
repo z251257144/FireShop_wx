@@ -1,0 +1,59 @@
+/* pages/order/order_list/order_list.wxss */
+
+
+page {
+  background-color: #F4F5F6
+}
+
+
+.order-no-data {
+  height: 800rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-item {
+  margin: 20rpx 0 0 0;
+  background-color: #fff;
+}
+
+.order-item-head {
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0 30rpx;
+  padding: 0 30rpx 0 0;
+  border-bottom: 1rpx solid #F3F3F3;
+}
+
+.order-goods-list {
+  padding: 15rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-item-bottom {
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0 30rpx;
+  padding: 0 30rpx 0 0;
+  border-top: 1rpx solid #F3F3F3;
+}
+
+.order-goods-item {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 10rpx;
+}
+
+
+

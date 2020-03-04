@@ -37,11 +37,13 @@ page {
 }
 
 .order-head {
-  width: 100%;
+  width: auto;
   height: 102rpx;
+  padding: 0 40rpx;
   border-bottom: 1rpx solid #F3F3F3;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -68,15 +70,13 @@ page {
   right: 2rpx;
   left: auto;
   top: 10rpx;
-  padding: 0 0 4rpx 0;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
   background-color: #B4282D;
   color: #fff;
-  font-size: 24rpx;
-  border-radius: 17rpx;
-  width: 30rpx;
+  font-size: 20rpx;
+  border-radius: 15rpx;
 }
 
 .function-list {
