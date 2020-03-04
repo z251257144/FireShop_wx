@@ -3,6 +3,7 @@
     "van-tab": "@vant/weapp/tab",
     "van-tabs": "@vant/weapp/tabs"
   },
-  "navigationBarTitleText": "订单列表"
+  "navigationBarTitleText": "订单列表",
+  "enablePullDownRefresh": true
 
 }
