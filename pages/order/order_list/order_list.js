@@ -1,7 +1,8 @@
 // pages/order/order_list/order_list.js
 
-const server = require('../../../servers/user_server.js');
+const server = require('../../../servers/order_server.js');
 const consts = require('../../../utils/consts.js');
+const pageUrl = require('../../../utils/page_url.js');
 const app = getApp();
 
 Page({
@@ -20,6 +21,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.index != null) {
+      this.setData({
+        orderTypeIndex: parseInt(options.index)
+      });
+    }
+    
     this.fetchOrderList()
   },
 
@@ -34,7 +41,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -72,25 +78,46 @@ Page({
     server.fetchOrderList(
       param,
       function (res) {
-        var list = res["orderList"];
-        var goodsMap = res.goodsMap;
-        for (let i = 0; i < list.length; i++) {
-          var item = list[i];
-          item["goodsList"] = goodsMap[item.id];
+
+
+
+        if (res != null) {
+          var list = res["orderList"];
+          var goodsMap = res.goodsMap;
+          for (let i = 0; i < list.length; i++) {
+            var item = list[i];
+            item["goodsList"] = goodsMap[item.id];
+          }
+          that.setData({
+            orderList: list
+          });
         }
-        that.setData({
-          orderList: list
-        });
+        else {
+          that.setData({
+            orderList: []
+          });
+        }
       },
-      function (err) {}
+      function (err) {
+        console.log("fetchOrderList fail");
+      }
     );
   },
 
   // 切换类型
   orderTypeChanged: function(e) {
-    console.log(e.detail);
     this.data.orderTypeIndex = e.detail.index;
     this.fetchOrderList();
-  } 
+  },
+
+  // 显示订单详情
+  showOrderDetail: function(e) {
+    var index = e.currentTarget.id;
+    var model = this.data.orderList[index];
+    console.log(model);
+    wx.navigateTo({
+      url: pageUrl.order.detail + "?id=" + model.id,
+    })
+  }
 
 })

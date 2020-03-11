@@ -14,7 +14,8 @@
     "pages/cart/cart",
     "pages/goods/goods_detail",
     "pages/member/login/login",
-    "pages/order/order_list/order_list"
+    "pages/order/order_list/order_list",
+    "pages/order/detail/order_detail"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",

@@ -2,6 +2,7 @@
 
 const pageUrls = require('../../../utils/page_url.js')
 const server = require('../../../servers/user_server.js')
+const orderServer = require('../../../servers/order_server.js');
 const userModel = require('../../../model/login_user_model.js')
 const consts = require('../../../utils/consts.js')
 
@@ -68,7 +69,7 @@ Page({
 
     var token = app.globalData.user.token;
     var that = this;
-    server.fetchOrderStatistics(token,
+    orderServer.fetchOrderStatistics(token,
       function (res) {
         for (let i = 0; i < consts.orderInfo.length; i++) {
           var item = consts.orderInfo[i];
@@ -137,7 +138,7 @@ Page({
     }
     
     wx.navigateTo({
-      url: pageUrls.user.order_list,
+      url: pageUrls.order.list,
     })
   },
 
@@ -147,8 +148,10 @@ Page({
       return;
     }
 
+    var index = e.currentTarget.id;
+    var item = this.data.orderInfo[index];
     wx.navigateTo({
-      url: pageUrls.user.order_list,
+      url: pageUrls.order.list + "?index=" + item.type,
     })
   },
 

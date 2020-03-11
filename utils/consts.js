@@ -15,22 +15,26 @@ const orderInfo = [
     title: "待付款",
     icon: "/images/member/orderform_pay.png",
     valueKey:"count_id_no_pay",
+    type: 1
   },
   {
     title: "待发货",
     icon: "/images/member/orderform_ship.png",
     valueKey: "count_id_no_transfer",
+    type: 2
   },
   {
     title: "待收货",
     icon: "/images/member/delivering.png",
     valueKey: "count_id_no_confirm",
+    type: 3
     
   },
   {
     title: "待评价",
     icon: "/images/member/orderform.png",
     valueKey: "count_id_close",
+    type: 4
   }
 ];
 

@@ -6,8 +6,14 @@ const goods_urls = {
 // 用户相关页面URL
 const user_urls = {
   login: "/pages/member/login/login",
-  order_list: "/pages/order/order_list/order_list",
+};
+
+// 订单相关页面URL
+const order_urls = {
+  list: "/pages/order/order_list/order_list",
+  detail: "/pages/order/detail/order_detail",
 };
 
 exports.goods = goods_urls;
 exports.user = user_urls;
+exports.order = order_urls;

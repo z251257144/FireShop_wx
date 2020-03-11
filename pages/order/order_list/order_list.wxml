@@ -10,7 +10,7 @@
   </view>
 </block>
 <block wx:else>
-  <view wx:for="{{orderList}}" wx:key="index" class="order-item">
+  <view wx:for="{{orderList}}" wx:key="index" class="order-item" bindtap="showOrderDetail" id="{{index}}">
     <view class="order-item-head">
       <view style="font-size: 24rpx;">{{item.orderNumber}}</view>
       <view style="font-size: 24rpx;color: #B4282D;">{{item.statusStr}}</view>
