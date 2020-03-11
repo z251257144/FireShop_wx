@@ -61,7 +61,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.data.page = 0;
+    this.fetchOrderList();
   },
 
   // 请求订单列表
@@ -75,33 +76,30 @@ Page({
     }
 
     var that = this;
-    server.fetchOrderList(
-      param,
-      function (res) {
-
-
-
-        if (res != null) {
-          var list = res["orderList"];
-          var goodsMap = res.goodsMap;
-          for (let i = 0; i < list.length; i++) {
-            var item = list[i];
-            item["goodsList"] = goodsMap[item.id];
-          }
-          that.setData({
-            orderList: list
-          });
-        }
-        else {
-          that.setData({
-            orderList: []
-          });
-        }
-      },
-      function (err) {
-        console.log("fetchOrderList fail");
+    server.fetchOrderList(param).then((res)=>{
+      if (res == null) {
+        that.setData({
+          orderList: []
+        });
       }
-    );
+      else {
+        var list = res["orderList"];
+        var goodsMap = res.goodsMap;
+        for (let i = 0; i < list.length; i++) {
+          var item = list[i];
+          item["goodsList"] = goodsMap[item.id];
+        }
+        that.setData({
+          orderList: list
+        });
+      }
+    }).catch((err)=>{
+      wx.showToast({
+        title: err.message,
+      })
+    }).finally(() => {
+      wx.stopPullDownRefresh()
+    });
   },
 
   // 切换类型
