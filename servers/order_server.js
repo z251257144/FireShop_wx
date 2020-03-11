@@ -12,16 +12,16 @@ function fetchOrderStatistics(token, onSuccess, onFailed) {
 /**
  * 订单列表
  */
-function fetchOrderList(param, onSuccess, onFailed) {
-  base_server.postRequest("order/list", param, onSuccess, onFailed);
+function fetchOrderList(param) {
+  return base_server.postPromise("order/list", param);
 }
 
 /**
  * 获取订单详情
  */
-function fetchOrderDetail(token, id, onSuccess, onFailed) {
-  var param = { "token": token };
-  base_server.postRequest("order/detail", param, onSuccess, onFailed);
+function fetchOrderDetail(token, id) {
+  var param = { "token": token, "id": id };
+  return base_server.postPromise("order/detail", param);
 }
 
 module.exports = {

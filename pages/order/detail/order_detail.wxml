@@ -1,2 +1,8 @@
 <!--pages/order/detail/order_detail.wxml-->
-<text>pages/order/detail/order_detail.wxml</text>
+
+<!-- 订单状态 -->
+<view class="status-content">
+  <image src="/images/order/icon-ddgb.png" style="width:100rpx;height:100rpx"></image>
+  <text class="status-title">{{orderInfo.statusStr}}</text>
+</view>
+
