@@ -17,7 +17,9 @@
     "pages/order/order_list/order_list",
     "pages/order/detail/order_detail",
     "pages/points/check_in/points_check_in_page",
-    "pages/points/list/points_list_page"
+    "pages/points/list/points_list_page",
+    "pages/coupon/list/coupon_list_page",
+    "pages/coupon/my/my_coupon_page"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",

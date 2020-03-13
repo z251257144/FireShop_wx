@@ -8,6 +8,8 @@ const user_urls = {
   login: "/pages/member/login/login",
   point_check_in: "/pages/points/check_in/points_check_in_page",
   point_list: "/pages/points/list/points_list_page",
+  coupon_list: "/pages/coupon/list/coupon_list_page",
+  my_coupon: "/pages/coupon/my/my_coupon_page",
 };
 
 // 订单相关页面URL

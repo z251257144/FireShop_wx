@@ -94,7 +94,7 @@ Page({
         title: err.msg,
       })
     }).finally(() => {
-      wx.stopPullDownRefresh()
+      wx.hideLoading()
     });
   },
 
@@ -113,7 +113,7 @@ Page({
         title: err.msg,
       })
     }).finally(() => {
-      wx.stopPullDownRefresh()
+      wx.hideLoading()
     });
   },
 

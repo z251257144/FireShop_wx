@@ -2,6 +2,7 @@
 const home_navigate_urls = {
   goods_detail: "/goodsDetail",
   point_check_in: "/point/check_in",
+  coupon_list: "/coupon/list"
 };
 
 
@@ -55,6 +56,7 @@ const functionInfo = [
   {
     title: "我的礼券",
     icon: "/images/member/profile_ticket.png",
+    url: "/pages/coupon/my/my_coupon_page"
   },
   {
     title: "我的收藏",

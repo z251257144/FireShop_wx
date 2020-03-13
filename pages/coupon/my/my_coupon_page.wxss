@@ -1,0 +1,81 @@
+/* pages/coupon/my/my_coupon_page.wxss */
+
+page {
+  background-color: #F4F5F6
+}
+
+.coupon-item {
+  width: auto;
+  height: 200rpx;
+  margin: 30rpx 30rpx 0 30rpx;
+  padding: 0 30rpx 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  align-items: center;
+  border-radius: 12rpx;
+}
+
+.coupon-info {
+  flex: 1;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30rpx;
+  justify-content: space-between;
+}
+
+.coupon-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.coupon-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coupon-name {
+  max-width: 380rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 28rpx;
+}
+
+.coupon-money {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.coupon-tag {
+  height: 34rpx;
+  padding: 0 10rpx 0 10rpx;
+  background-color: #EDB03B;
+  color: #fff;
+  font-size: 18rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8rpx;
+  margin-top: 6rpx;
+}
+
+.coupon-button {
+  height: 55rpx;
+  width: 160rpx;
+  color: #929292;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 27.5rpx;
+  border: 2rpx solid #929292;
+}

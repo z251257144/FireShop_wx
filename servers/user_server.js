@@ -28,7 +28,6 @@ function fetchUserDetail(token, onSuccess, onFailed) {
   base_server.postRequest("user/detail", param, onSuccess, onFailed);
 }
 
-
 /**
  * 签到
  */
@@ -61,6 +60,34 @@ function fetchScoreList(token, page) {
   return base_server.getPromise("score/logs", param);
 }
 
+/**
+ * 获取可领取优惠券列表
+ */
+function fetchDiscountsCoupons(token) {
+  var param = {};
+  if (token != null) {
+    param.token = token;
+  }
+  return base_server.getPromise("discounts/coupons", param);
+}
+
+/**
+ * 领取优惠券
+ */
+function fetchCoupon(token, id) {
+  var param = { "token": token, "id": id };
+  return base_server.getPromise("discounts/fetch", param);
+}
+
+/**
+ * 领取优惠券
+ */
+function fetchMyCoupons(token, status) {
+  var param = { "token": token, "status": status };
+  return base_server.getPromise("discounts/my", param);
+}
+
+
 
 module.exports = {
   fetchUserLogin: fetchUserLogin,
@@ -70,4 +97,7 @@ module.exports = {
   fetchScoreTodaySigned: fetchScoreTodaySigned,
   fetchUserAmount: fetchUserAmount,
   fetchScoreList: fetchScoreList,
+  fetchDiscountsCoupons: fetchDiscountsCoupons,
+  fetchCoupon: fetchCoupon,
+  fetchMyCoupons: fetchMyCoupons,
 }

@@ -99,7 +99,14 @@ Page({
     var index = e.currentTarget.id;
     var data = this.data.saleData[index];
     console.log(data);
-    this.chechData(data);
+    if (consts.home_navigate_urls.point_check_in == data.linkUrl) {
+      this.showPointCheckIn();
+    }
+    else if (consts.home_navigate_urls.coupon_list == data.linkUrl) {
+      wx.navigateTo({
+        url: pageUrls.user.coupon_list,
+      })
+    }
   },
   
   // 热门活动界面点击
@@ -121,9 +128,6 @@ Page({
   chechData: function (data) {
     if (consts.home_navigate_urls.goods_detail == data.linkUrl) {
       this.showGoodsDetail(data.remark);
-    }
-    else if (consts.home_navigate_urls.point_check_in == data.linkUrl) {
-      this.showPointCheckIn();
     }
     else {
       console.log("未找到对应URL：" + data.linkUrl);

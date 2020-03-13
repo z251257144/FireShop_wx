@@ -1,0 +1,35 @@
+<!--pages/coupon/my/my_coupon_page.wxml-->
+
+<van-tabs active="{{type}}" bind:change="typeChanged">
+  <van-tab wx:for="{{couponBarConfig}}" wx:key="index" title="{{item.title}}"></van-tab>
+</van-tabs>
+
+<block wx:if="{{coupons == null || coupons.length == 0}}">
+  暂无优惠券
+  <empty_view></empty_view>
+</block>
+<block wx:else >
+  <view wx:for="{{coupons}}" wx:key="index" class="coupon-item" bindtap="couponItemTap" id="{{item.id}}">
+    <image src="/images/member/coupons-active.png" style="width: 120rpx; height: 108rpx;"></image>
+
+    <view class="coupon-info">
+      <!-- 代金券名称和类型 -->
+      <view class="coupon-top">
+        <text class="coupon-name">{{item.name}}</text>
+        <text class="coupon-tag">代金券</text>
+      </view>
+
+      <!-- 代金券金额和领取按钮 -->
+      <view class="coupon-bottom">
+        <view class="coupon-money">
+          <text style="color: #8A8A8A; font-size: 20rpx; padding-bottom: 6rpx;">满{{item.moneyHreshold}}</text>
+          <text style="color: #FEB21C; font-size: 40rpx; padding-left: 10rpx;">￥{{item.money}}</text>
+        </view>
+        <text class="coupon-button">立即领取</text>
+      </view>
+    </view>
+    
+  </view>
+</block>
+
+
