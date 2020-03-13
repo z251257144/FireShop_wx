@@ -53,6 +53,15 @@ function fetchUserAmount(token) {
   return base_server.getPromise("user/amount", param);
 }
 
+/**
+ * 积分明细记录
+ */
+function fetchScoreList(token, page) {
+  var param = { "token": token, "page": page, "pageSize": 20 };
+  return base_server.getPromise("score/logs", param);
+}
+
+
 module.exports = {
   fetchUserLogin: fetchUserLogin,
   fetchMobileLogin: fetchMobileLogin,
@@ -60,4 +69,5 @@ module.exports = {
   fetchScoreSign: fetchScoreSign,
   fetchScoreTodaySigned: fetchScoreTodaySigned,
   fetchUserAmount: fetchUserAmount,
+  fetchScoreList: fetchScoreList,
 }

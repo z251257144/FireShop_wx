@@ -1,2 +1,12 @@
-<!--pages/points/list/points_list_page.wxml-->
-<text>pages/points/list/points_list_page.wxml</text>
+<view class="header">
+  <text style="color: #AEABA0; font-size: 26rpx;">您的可用积分</text>
+  <text style="color: #B0A17D; font-size: 56rpx; padding-top: 20rpx;">{{score}}</text>
+</view>
+
+<view wx:for="{{scoreList}}" wx:key="index" class="score-item">
+  <view class="score-item-left">
+    <text>{{item.typeStr}}</text>
+    <text style="color: #6E6E6E; font-size: 24rpx; padding-top: 10rpx;">{{item.dateAdd}}</text>
+  </view>
+  <text style="color: #1A73E8; font-size: 34rpx;">+{{item.score}}</text>
+</view>
