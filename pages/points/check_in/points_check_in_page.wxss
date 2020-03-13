@@ -1,0 +1,31 @@
+/* pages/points/check_in/points_check_in_page.wxss */
+
+.header {
+  background-image: url('https://dcdn.it120.cc/2020/03/13/885fbe00-987d-4a1d-a568-55330bab8337.png');
+  width: 100%;
+  height: 313rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-content {
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-enable {
+  width: 200rpx;
+  height: 72rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30rpx;
+  border-radius: 36rpx;
+}
+

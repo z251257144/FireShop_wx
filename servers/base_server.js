@@ -62,14 +62,18 @@ function request(url, params, method, onSuccess, onFailed) {
       wx.hideLoading();
       console.log('响应：', res.data);
 
-      if (res.data) {
-        /** start 根据需求 接口的返回状态码进行处理 */
-        if (res.statusCode == 200) {
-          onSuccess(res.data['data']); //request success
-        } else {
-          onFailed(res.data['msg']); //request failed
-        }
-        /** end 处理结束*/
+      var code = parseInt(res.data.code);
+      if (res.statusCode != 200) {
+        var error = {"code": -999, "msg": "net error"}
+        onFailed(error);
+      }
+      else if (code != 0) {
+        // 接口返回错误
+        onFailed(res.data);
+      }
+      else {
+        // request success
+        onSuccess(res.data['data']);
       }
     },
     fail: function (error) {

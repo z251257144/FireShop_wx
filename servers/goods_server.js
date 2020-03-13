@@ -16,7 +16,34 @@ function fetchCategoryList(onSuccess, onFailed) {
   base_server.getRequest("shop/goods/category/all", param, onSuccess, onFailed);
 }
 
+/**
+ * 检测是否已收藏
+ */
+function fetchGoodsFavoriteCheck(token, id) {
+  var param = { "token": token, "goodsId": id };
+  return base_server.getPromise("shop/goods/fav/check", param);
+}
+
+/**
+ * 添加商品收藏
+ */
+function fetchGoodsFavoriteAdd(token, id) {
+  var param = { "token": token, "goodsId": id };
+  return base_server.getPromise("shop/goods/fav/add", param);
+}
+
+/**
+ * 删除商品收藏
+ */
+function fetchGoodsFavoriteDelete(token, id) {
+  var param = { "token": token, "goodsId": id };
+  return base_server.getPromise("shop/goods/fav/delete", param);
+}
+
 module.exports = {
   fetchGoodsDetail: fetchGoodsDetail,
-  fetchCategoryList: fetchCategoryList
+  fetchCategoryList: fetchCategoryList,
+  fetchGoodsFavoriteCheck: fetchGoodsFavoriteCheck,
+  fetchGoodsFavoriteAdd: fetchGoodsFavoriteAdd,
+  fetchGoodsFavoriteDelete: fetchGoodsFavoriteDelete,
 }

@@ -1,18 +1,17 @@
 const consts = require('utils/consts.js');
-const userModel = require('model/login_user_model.js')
-const server = require('servers/user_server.js')
+const userUtil = require('utils/user_util.js');
 
 App({
 
   globalData: {
-    user: userModel.user
+    user: null
   },
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    this.fetchUserDetail();
+    userUtil.getUserDetail();
   },
 
   /**
@@ -44,30 +43,4 @@ App({
   onError: function (msg) {
     
   },
-
-  // 请求用户信息
-  fetchUserDetail: function () {
-    var that = this;
-    wx.getStorage({
-      key: consts.storage_keys.token,
-      success: function (token) {
-        console.log("token = " + token.data);
-        server.fetchUserDetail(
-          token.data,
-          (res) => {
-            console.log("res = " + res);
-            var model = userModel.loginUserFromJson(res.base);
-            model.token = token.data;
-            that.globalData.user = model;
-            console.log("that.globalData.user = " + that.globalData.user.isLogin);
-          },
-          (err) => {
-            console.log("err = " + err);
-          },
-        );
-      },
-    })
-  },
-
-
 })

@@ -28,8 +28,36 @@ function fetchUserDetail(token, onSuccess, onFailed) {
   base_server.postRequest("user/detail", param, onSuccess, onFailed);
 }
 
+
+/**
+ * 签到
+ */
+function fetchScoreSign(token) {
+  var param = { "token": token };
+  return base_server.getPromise("score/sign", param);
+}
+
+/**
+ * 今日签到记录
+ */
+function fetchScoreTodaySigned(token) {
+  var param = { "token": token };
+  return base_server.getPromise("score/today-signed", param);
+}
+
+/**
+ * 查看用户资产
+ */
+function fetchUserAmount(token) {
+  var param = { "token": token };
+  return base_server.getPromise("user/amount", param);
+}
+
 module.exports = {
   fetchUserLogin: fetchUserLogin,
   fetchMobileLogin: fetchMobileLogin,
-  fetchUserDetail: fetchUserDetail
+  fetchUserDetail: fetchUserDetail,
+  fetchScoreSign: fetchScoreSign,
+  fetchScoreTodaySigned: fetchScoreTodaySigned,
+  fetchUserAmount: fetchUserAmount,
 }

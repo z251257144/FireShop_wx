@@ -1,6 +1,7 @@
 // 首页导航URL
 const home_navigate_urls = {
   goods_detail: "/goodsDetail",
+  point_check_in: "/point/check_in",
 };
 
 
@@ -49,6 +50,7 @@ const functionInfo = [
     title: "我的积分",
     value: "3 积分",
     icon: "/images/member/jifen.png",
+    url: "/pages/points/list/points_list_page"
   },
   {
     title: "我的礼券",

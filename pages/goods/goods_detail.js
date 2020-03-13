@@ -2,6 +2,7 @@
 
 const server = require('../../servers/goods_server.js')
 const consts = require('../../utils/consts.js')
+const pageUrl = require('../../utils/page_url.js')
 
 var app = getApp();
 
@@ -18,7 +19,7 @@ Page({
     pics: null,
 
     // 商品收藏标识
-    goods_collect: false,
+    goodsFavorite: false,
 
     // 切换标识
     active: 0,
@@ -37,57 +38,15 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.fetchGoodsFavoriteCheck();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
+  
   // 获取商品详情数据  
   fetchGoodsDetail: function () {
-    server.fetchGoodsDetail(this.data.googsId,(res) => {
+    server.fetchGoodsDetail(this.data.googsId, (res) => {
 
       var tempContent = res.content;
       tempContent = tempContent.replace(/\<img/gi, '<img style="width:100%;height:auto" ')
@@ -101,4 +60,79 @@ Page({
       console.log(error);
     });
   },
+
+  // 检测是否已收藏
+  fetchGoodsFavoriteCheck: function () {
+    var isLogin = app.globalData.user.isLogin;
+    if (!isLogin) {
+      return;
+    }
+
+
+    var token = app.globalData.user.token;
+    var that = this;
+    server.fetchGoodsFavoriteCheck(token, this.data.googsId)
+    .then((res) => {
+      that.setData({
+        goodsFavorite: true,
+      })
+    });
+  },
+
+  // 添加商品收藏
+  fetchGoodsFavoriteAdd: function () {
+    var token = app.globalData.user.token;
+    var that = this;
+    wx.showLoading();
+    server.fetchGoodsFavoriteAdd(token, this.data.googsId)
+    .then((res) => {
+      that.setData({
+        goodsFavorite: true,
+      })
+    }).catch((err) => {
+      wx.showToast({
+        title: err.msg,
+      })
+    }).finally(() => {
+      wx.stopPullDownRefresh()
+    });
+  },
+
+  // 删除商品收藏
+  fetchGoodsFavoriteDelete: function () {
+    var token = app.globalData.user.token;
+    var that = this;
+    wx.showLoading();
+    server.fetchGoodsFavoriteDelete(token, this.data.googsId)
+    .then((res) => {
+      that.setData({
+        goodsFavorite: false,
+      })
+    }).catch((err) => {
+      wx.showToast({
+        title: err.msg,
+      })
+    }).finally(() => {
+      wx.stopPullDownRefresh()
+    });
+  },
+
+  // 收藏按钮点击
+  favoriteTap: function(e) {
+    var isLogin = app.globalData.user.isLogin;
+    if (!isLogin) {
+      wx.navigateTo({
+        url: pageUrl.user.login,
+      })
+      return;
+    }
+
+    if (this.data.goodsFavorite) {
+      this.fetchGoodsFavoriteDelete();
+    }
+    else {
+      this.fetchGoodsFavoriteAdd();
+    }
+  }
+
 })

@@ -1,8 +1,9 @@
 // pages/home/home/home.js
 
-const server = require('../../../servers/home_server.js')
-const consts = require('../../../utils/consts.js')
-const pageUrls = require('../../../utils/page_url.js')
+const server = require('../../../servers/home_server.js');
+const consts = require('../../../utils/consts.js');
+const pageUrls = require('../../../utils/page_url.js');
+const userUtil = require('../../../utils/user_util.js');
 
 Page({
 
@@ -98,6 +99,7 @@ Page({
     var index = e.currentTarget.id;
     var data = this.data.saleData[index];
     console.log(data);
+    this.chechData(data);
   },
   
   // 热门活动界面点击
@@ -105,13 +107,13 @@ Page({
     var index = e.currentTarget.id;
     var data = this.data.hotData[index];
     console.log(data);
+    this.chechData(data);
   },
 
   // 推荐商品界面点击
   recomendViewTap: function (e) {
     var index = e.currentTarget.id;
     var data = this.data.goodsList[index];
-    console.log(data);
     this.showGoodsDetail(data.id);
   },
 
@@ -119,6 +121,9 @@ Page({
   chechData: function (data) {
     if (consts.home_navigate_urls.goods_detail == data.linkUrl) {
       this.showGoodsDetail(data.remark);
+    }
+    else if (consts.home_navigate_urls.point_check_in == data.linkUrl) {
+      this.showPointCheckIn();
     }
     else {
       console.log("未找到对应URL：" + data.linkUrl);
@@ -131,6 +136,17 @@ Page({
     console.log(id);
     wx.navigateTo({
       url: pageUrls.goods.detail + "?googsId=" + id,
+    })
+  },
+
+  // 显示签到界面
+  showPointCheckIn: function () {
+    if (!userUtil.checkUserLogin()) {
+      return;
+    }
+
+    wx.navigateTo({
+      url: pageUrls.user.point_check_in,
     })
   }
 

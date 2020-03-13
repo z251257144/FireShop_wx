@@ -6,6 +6,8 @@ const goods_urls = {
 // 用户相关页面URL
 const user_urls = {
   login: "/pages/member/login/login",
+  point_check_in: "/pages/points/check_in/points_check_in_page",
+  point_list: "/pages/points/list/points_list_page",
 };
 
 // 订单相关页面URL

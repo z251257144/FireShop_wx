@@ -2,7 +2,51 @@
 
 <!-- 订单状态 -->
 <view class="status-content">
-  <image src="/images/order/icon-ddgb.png" style="width:100rpx;height:100rpx"></image>
+  <image src="{{orderInfo.statusIcon}}" style="width:100rpx;height:100rpx"></image>
   <text class="status-title">{{orderInfo.statusStr}}</text>
+</view>
+
+<!-- 收货地址 -->
+<view wx:if="{{ address }}" class="address">
+  <text style="font-size: 28rpx;">{{address.linkMan}}  {{address.mobile}}</text>
+  <text class="address-full">{{address.fullAddress}}</text>
+</view>
+
+<!-- 商品数据 -->
+<view wx:if="{{ goods && goods.length > 0 }}" class="goods-content">
+  <text class="goods-head">商品信息</text>
+
+  <view wx:for="{{goods}}" wx:key="index" class="goods-item-content">
+
+    <image class="goods-image" src="{{item.pic}}"></image>
+
+    <view class="goods-info-center">
+      <text class="goods-name">{{item.goodsName}}</text>
+      <text style="font-size: 26rpx;color: #545454;">{{item.property}}</text>
+    </view>
+
+    <view class="goods-info-right">
+      <text style="font-size: 26rpx;">￥{{item.amountSingle}}</text>
+      <text style="font-size: 26rpx;color: #545454;">x{{item.number}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 订单金额 -->
+<view class="amout-content">
+    <view class="amout-item" style="border-bottom: 1rpx solid #F3F3F3;">
+      <text style="font-size: 26rpx;">商品价格</text>
+      <text style="font-size: 26rpx;">￥{{orderInfo.amount}}</text>
+    </view>
+
+    <view class="amout-item" style="border-bottom: 1rpx solid #F3F3F3;">
+      <text style="font-size: 26rpx;">运费</text>
+      <text style="font-size: 26rpx;">+￥{{orderInfo.amountLogistics}}</text>
+    </view>
+
+    <view class="amout-item">
+      <text style="font-size: 26rpx;">金额</text>
+      <text style="font-size: 26rpx;">￥{{orderInfo.amountReal}}</text>
+    </view>
 </view>
 

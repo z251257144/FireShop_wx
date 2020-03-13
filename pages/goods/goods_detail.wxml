@@ -45,7 +45,7 @@
 
     <!-- 收藏按钮 -->
     <view class="bottom-bar-cart">
-      <image src="{{goods_collect ? '../../images/goods/goods_collect_checked.png' : '../../images/goods/goods_collect.png'}}" style="width: 40rpx; height: 40rpx;"></image>
+      <image src="{{goodsFavorite ? '../../images/goods/goods_collect_checked.png' : '../../images/goods/goods_collect.png'}}" style="width: 40rpx; height: 40rpx;" bindtap="favoriteTap"></image>
     </view>
 
     <!-- 收藏按钮 -->

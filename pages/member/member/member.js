@@ -5,8 +5,9 @@ const server = require('../../../servers/user_server.js')
 const orderServer = require('../../../servers/order_server.js');
 const userModel = require('../../../model/login_user_model.js')
 const consts = require('../../../utils/consts.js')
+const userUtil = require('../../../utils/user_util.js')
 
-const app = getApp();
+const app = getApp()
 
 Page({
 
@@ -45,54 +46,43 @@ Page({
     this.fetchOrderStatistics();
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   // 请求订单统计
   fetchOrderStatistics: function () {
-    var isLogin = app.globalData.user.isLogin;
-    if (!isLogin) {
+    if (!userUtil.isLogin()) {
       return;
     }
 
 
-    var token = app.globalData.user.token;
+    var token = userUtil.currentUser().token;
     var that = this;
     orderServer.fetchOrderStatistics(token,
       function (res) {
-        for (let i = 0; i < consts.orderInfo.length; i++) {
-          var item = consts.orderInfo[i];
-          item.value = res[item.valueKey];
-
-          if (item.value < 10) {
-            item.valueWidth = "30rpx";
-          }
-          else if (item.value < 100) {
-            item.valueWidth = "45rpx";
-          }
-          else {
-            item.valueWidth = "60rpx";
-          }
-        }
-
+        that.dealOrderBadge(res);
         that.setData({
           orderInfo: consts.orderInfo
         });
-
-        console.log(consts.orderInfo);
+      },
+      function (err) {
       }  
     );
+  },
+
+  // 处理订单数量角标
+  dealOrderBadge: function (res) {
+    for (let i = 0; i < consts.orderInfo.length; i++) {
+      var item = consts.orderInfo[i];
+      item.value = res[item.valueKey];
+
+      if (item.value < 10) {
+        item.valueWidth = "30rpx";
+      }
+      else if (item.value < 100) {
+        item.valueWidth = "45rpx";
+      }
+      else {
+        item.valueWidth = "60rpx";
+      }
+    }
   },
 
   // 登录
@@ -133,7 +123,7 @@ Page({
 
   // 显示全部订单
   showAllOrder: function (e) {
-    if (this.checkUserLogin()) {
+    if (!userUtil.checkUserLogin()) {
       return;
     }
     
@@ -144,7 +134,7 @@ Page({
 
   // 我的订单点击事件
   orderViewTap: function (e) {
-    if (this.checkUserLogin()) {
+    if (!userUtil.checkUserLogin()) {
       return;
     }
 
@@ -157,19 +147,14 @@ Page({
 
   // 菜单功能点击事件
   functionViewTap: function (e) {
-    
-    console.log(e);
-  },
-
-  // 检测用户是否登录，如果检测未登录，同时跳转到登录界面
-  checkUserLogin: function() {
-    var isLogin = app.globalData.user.isLogin;
-    if (!isLogin) {
-      wx.navigateTo({
-        url: pageUrls.user.login,
-      })
+    if (!userUtil.checkUserLogin()) {
+      return;
     }
-
-    return !isLogin;
+    console.log(e);
+    var index = e.currentTarget.id;
+    var item = this.data.functionInfo[index];
+    wx.navigateTo({
+      url: item.url,
+    })
   }
 })

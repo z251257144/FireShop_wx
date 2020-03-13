@@ -15,7 +15,9 @@
     "pages/goods/goods_detail",
     "pages/member/login/login",
     "pages/order/order_list/order_list",
-    "pages/order/detail/order_detail"
+    "pages/order/detail/order_detail",
+    "pages/points/check_in/points_check_in_page",
+    "pages/points/list/points_list_page"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",
