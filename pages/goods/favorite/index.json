@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "empty-view": "/components/empty-view/index"
+  },
+  "navigationBarTitleText": "商品收藏",
+  "enablePullDownRefresh": true,
+  "enableReachBottom": true
 }

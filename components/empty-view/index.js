@@ -19,7 +19,7 @@ Component({
     // 图片地址
     imageWidth: {
       type: Number,
-      value: 108,
+      value: 150,
     },
 
   },

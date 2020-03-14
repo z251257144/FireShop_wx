@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "empty-view": "/components/empty-view/index"
+  },
+  "navigationBarTitleText": "我的地址",
+  "enablePullDownRefresh": true
+}

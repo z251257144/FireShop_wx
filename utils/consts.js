@@ -46,6 +46,7 @@ const functionInfo = [
     title: "我的余额",
     value: "0 元",
     icon: "/images/member/profile_tegral.png",
+    url: "/pages/member/amount/index"
   },
   {
     title: "我的积分",
@@ -61,16 +62,19 @@ const functionInfo = [
   {
     title: "我的收藏",
     icon: "/images/member/profile_collection.png",
+    url: "/pages/goods/favorite/index"
   },
   {
     title: "我的地址",
     icon: "/images/member/profile_address.png",
+    url: "/pages/member/address-list/index"
   },
   {
     title: "",
     icon: "",
   }
 ];
+    
 
 // 订单列表状态配置
 const orderTypeConfig = [

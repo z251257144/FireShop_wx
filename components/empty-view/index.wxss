@@ -9,7 +9,7 @@
 }
 
 .title {
-  padding-top: 15rpx;
-  font-size: 28rpx;
+  padding-top: 20rpx;
+  font-size: 30rpx;
   color: #6E6E6E;
 }

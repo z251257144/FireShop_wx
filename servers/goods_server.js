@@ -40,10 +40,19 @@ function fetchGoodsFavoriteDelete(token, id) {
   return base_server.getPromise("shop/goods/fav/delete", param);
 }
 
+/**
+ * 商品收藏列表
+ */
+function fetchGoodsFavoriteList(token, page) {
+  var param = { "token": token, "page": page, "pageSize": 20 };
+  return base_server.getPromise("shop/goods/fav/list", param);
+}
+
 module.exports = {
   fetchGoodsDetail: fetchGoodsDetail,
   fetchCategoryList: fetchCategoryList,
   fetchGoodsFavoriteCheck: fetchGoodsFavoriteCheck,
   fetchGoodsFavoriteAdd: fetchGoodsFavoriteAdd,
   fetchGoodsFavoriteDelete: fetchGoodsFavoriteDelete,
+  fetchFavoriteList: fetchGoodsFavoriteList
 }

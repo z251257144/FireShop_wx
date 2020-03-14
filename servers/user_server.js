@@ -87,6 +87,14 @@ function fetchMyCoupons(token, status) {
   return base_server.getPromise("discounts/my", param);
 }
 
+/**
+ * 获取所有的收货地址
+ */
+function fetchAddressList(token) {
+  var param = { "token": token };
+  return base_server.getPromise("user/shipping-address/list", param);
+}
+
 
 
 module.exports = {
@@ -100,4 +108,5 @@ module.exports = {
   fetchDiscountsCoupons: fetchDiscountsCoupons,
   fetchCoupon: fetchCoupon,
   fetchMyCoupons: fetchMyCoupons,
+  fetchAddressList: fetchAddressList
 }

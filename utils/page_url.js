@@ -11,6 +11,9 @@ const user_urls = {
   point_list: "/pages/points/list/points_list_page",
   coupon_list: "/pages/coupon/list/coupon_list_page",
   my_coupon: "/pages/coupon/my/my_coupon_page",
+  address_list: "/pages/member/address-list/index",
+  address_add: "/pages/member/address-add/index",
+  amount: "/pages/member/amount/index"
 };
 
 // 订单相关页面URL

@@ -19,7 +19,10 @@
     "pages/points/check_in/points_check_in_page",
     "pages/points/list/points_list_page",
     "pages/coupon/list/coupon_list_page",
-    "pages/coupon/my/my_coupon_page"
+    "pages/coupon/my/my_coupon_page",
+    "pages/member/address-list/index",
+    "pages/member/address-add/index",
+    "pages/member/amount/index"
   ],
   "tabBar": {
     "selectedColor": "#B4282D",

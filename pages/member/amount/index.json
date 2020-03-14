@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "empty-view": "/components/empty-view/index"
+  },
+  "navigationBarTitleText": "我的余额"
+}

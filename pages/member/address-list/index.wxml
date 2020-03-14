@@ -1,0 +1,26 @@
+<!--pages/member/address-list/index.wxml-->
+
+
+<block wx:if="{{addressList == null || addressList.length == 0}}">
+  <empty-view title="您还没有添加地址" image="/images/member/empty_order.png"></empty-view>
+</block>
+
+<block wx:else >
+  <view wx:for="{{addressList}}" wx:key="index" class="address-item" bindtap="showGoodsDetail" id="{{item.id}}">
+    <!-- <image src="{{item.pic}}" style="width: 120rpx; height: 120rpx; border-radius: 10rpx;"></image> -->
+    
+    <view class="address-left">
+      <view class="address-top">
+        <text wx:if="{{item.isDefault}}" class="default-tag">默认</text>
+        <text style="font-size: 30rpx;">{{item.linkMan}} {{item.mobile}}</text>
+      </view>
+
+      <text class="address-1">{{item.provinceStr}} {{item.cityStr}} {{item.areaStr}}</text>
+      <text class="address-2">{{item.address}}</text>
+    </view>
+
+    <image src="/images/member/addr-edit.png" style="width: 50rpx; height: 50rpx; padding-left: 30rpx;"></image>
+    
+  </view>
+
+</block>

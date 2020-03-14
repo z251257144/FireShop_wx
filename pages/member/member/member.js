@@ -150,9 +150,15 @@ Page({
     if (!userUtil.checkUserLogin()) {
       return;
     }
-    console.log(e);
+    
     var index = e.currentTarget.id;
     var item = this.data.functionInfo[index];
+    if (item.url == null) {
+      console.log("链接功能不存在");
+      console.log(item);
+      return;
+    }
+
     wx.navigateTo({
       url: item.url,
     })

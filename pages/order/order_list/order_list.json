@@ -5,6 +5,7 @@
     "empty-view": "/components/empty-view/index"
   },
   "navigationBarTitleText": "订单列表",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "enableReachBottom": true
 
 }

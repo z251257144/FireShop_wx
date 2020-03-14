@@ -42,7 +42,7 @@ Page({
     var token = userUtil.currentUser().token;
     var that = this;
     server.fetchScoreList(token, page).then((res)=>{
-      that.data.page = 0;
+      that.data.page = page;
       console.log(res);
       that.setData({
         scoreList: res.result

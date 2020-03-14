@@ -1,2 +1,22 @@
 <!--pages/goods/favorite/index.wxml-->
-<text>pages/goods/favorite/index.wxml</text>
+<block wx:if="{{goods == null || goods.length == 0}}">
+  <empty-view title="您还没有收藏商品" image="/images/member/empty_collection.png"></empty-view>
+</block>
+
+<block wx:else >
+  <view wx:for="{{goods}}" wx:key="index" class="goods-item" bindtap="showGoodsDetail" id="{{item.goodsId}}">
+    <image src="{{item.pic}}" style="width: 120rpx; height: 120rpx; border-radius: 10rpx;"></image>
+    
+    <view class="goods-right">
+      <text class="goods-name">{{item.goodsName}}</text>
+  
+      <text class="add-time">{{item.dateAdd}}</text>
+    </view>
+
+    <image src="/images/member/arrow-right.png" style="width: 15rpx; height: 27rpx;"></image>
+    
+  </view>
+
+</block>
+
+

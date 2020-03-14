@@ -1,1 +1,40 @@
 /* pages/goods/favorite/index.wxss */
+
+page {
+  background-color: #F5F5F5
+}
+
+.goods-item {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #F3F3F3;
+}
+
+.goods-right {
+  height: 125rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20rpx;
+  justify-content: space-between;
+}
+
+.goods-name {
+  color: rgb(31, 29, 29);
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding-right: 20rpx;
+}
+
+.add-time {
+  color: rgb(110, 107, 107);
+  font-size: 22rpx;
+}
