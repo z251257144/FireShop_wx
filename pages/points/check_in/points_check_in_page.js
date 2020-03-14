@@ -41,6 +41,9 @@ Page({
     var token = app.globalData.user.token;
     var that = this;
     server.fetchScoreSign(token).then((res) => {
+      that.setData({
+        hasCheck: true
+      });
       that.fetchUserAmount();
     }).catch((err) => {
       wx.showToast({

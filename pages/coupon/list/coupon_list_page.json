@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "empty-view": "/components/empty-view/index"
+  },
   "navigationBarTitleText": "优惠券"
 }

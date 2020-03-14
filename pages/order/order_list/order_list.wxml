@@ -4,11 +4,9 @@
 </van-tabs>
 
 <block wx:if="{{orderList == null || orderList.length == 0}}">
-  <view class="order-no-data">
-    <image src="/images/order/no-order.png" style="width:108rpx; height:108rpx;"></image>
-    <text style="font-size: 26rpx;">暂无订单</text>
-  </view>
+  <empty-view title="暂无订单" image="/images/order/no-order.png"></empty-view>
 </block>
+
 <block wx:else>
   <view wx:for="{{orderList}}" wx:key="index" class="order-item" bindtap="showOrderDetail" id="{{index}}">
     <view class="order-item-head">

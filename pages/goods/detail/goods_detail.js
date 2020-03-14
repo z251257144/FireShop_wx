@@ -1,8 +1,8 @@
 // pages/goods/goods_detail.js
 
-const server = require('../../servers/goods_server.js')
-const consts = require('../../utils/consts.js')
-const pageUrl = require('../../utils/page_url.js')
+const server = require('../../../servers/goods_server.js')
+const consts = require('../../../utils/consts.js')
+const pageUrl = require('../../../utils/page_url.js')
 
 var app = getApp();
 

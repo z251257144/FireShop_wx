@@ -39,6 +39,7 @@ Page({
     var token = userUtil.currentUser().token;
     var that = this;
     server.fetchMyCoupons(token, item.status).then((res) => {
+      that.dealCouponList(res);
       console.log(res)
       that.setData({
         coupons: res
@@ -48,6 +49,14 @@ Page({
         coupons: []
       });
     });
+  },
+
+  // 处理优惠券数据
+  dealCouponList: function (res){
+    for (var i = 0; i < res.length; i++) {
+      var item = res[i];
+      item.enable = parseInt(item.status) == 0;
+    }
   },
 
   // 状态切换

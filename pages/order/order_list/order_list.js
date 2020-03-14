@@ -74,9 +74,9 @@ Page({
         });
       }
     }).catch((err)=>{
-      wx.showToast({
-        title: err.message,
-      })
+      // wx.showToast({
+      //   title: err.msg,
+      // })
     }).finally(() => {
       wx.stopPullDownRefresh()
     });

@@ -2,7 +2,7 @@
   "usingComponents": {
     "van-tab": "@vant/weapp/tab",
     "van-tabs": "@vant/weapp/tabs",
-    "empty_view": "/components/empty_view/empty_view"
+    "empty-view": "/components/empty-view/index"
   },
   "enablePullDownRefresh": true,
   "navigationBarTitleText": "我的优惠券"

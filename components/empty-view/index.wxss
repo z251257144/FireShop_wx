@@ -1,0 +1,15 @@
+/* components/empty-view/index.wxss */
+
+.content {
+  height: 800rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  padding-top: 15rpx;
+  font-size: 28rpx;
+  color: #6E6E6E;
+}

@@ -1,6 +1,7 @@
 // 商品相关页面URL
 const goods_urls = {
-  detail: "/pages/goods/goods_detail",
+  detail: "/pages/goods/detail/goods_detail",
+  favorite: "/pages/goods/favorite/index"
 };
 
 // 用户相关页面URL

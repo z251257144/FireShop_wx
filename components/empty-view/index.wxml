@@ -1,0 +1,6 @@
+<!--components/empty-view/index.wxml-->
+
+<view class="content">
+  <image src="{{image}}" style="width:{{imageWidth}}rpx;" mode="widthFix"></image>
+  <text class="title">{{title}}</text>
+</view>
