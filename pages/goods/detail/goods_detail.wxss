@@ -72,8 +72,8 @@ page {
   position: fixed;
   width: 100%;
   bottom: 0;
-  
 }
+
 .bottom-bar-content {
   background-color: #fff; 
   height:96rpx;

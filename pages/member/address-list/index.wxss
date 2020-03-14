@@ -53,3 +53,20 @@ page {
   margin-right: 20rpx;
   margin-top: 6rpx;
 }
+
+.address-add {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 100rpx;
+  /* padding: 0 10rpx 0 10rpx; */
+  background-color: #EDB03B;
+  color: #fff;
+  font-size: 35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 6rpx;
+  margin-right: 20rpx;
+  margin-top: 6rpx; */
+}

@@ -24,3 +24,7 @@
   </view>
 
 </block>
+
+<view class="address-add">
+  <text>添加地址</text>
+</view>
