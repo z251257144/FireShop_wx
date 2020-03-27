@@ -1,0 +1,20 @@
+/* components/region-picker/index.wxss */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 96rpx;
+  border-bottom: 1rpx solid #F3F3F3;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-confirm {
+  padding: 0 30rpx 0 30rpx;
+  color: #B4282D;
+}
+
+.content {
+  height: 300rpx;
+  padding-bottom:env(safe-area-inset-bottom)
+}

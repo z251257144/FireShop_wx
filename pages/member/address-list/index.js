@@ -1,7 +1,8 @@
 // pages/member/address-list/index.js
 
-const server = require('../../../servers/user_server.js');
-const userUtil = require('../../../utils/user_util.js');
+const server = require('../../../servers/user_server.js')
+const userUtil = require('../../../utils/user_util.js')
+const pageUtil = require('../../../utils/page_url.js')
 
 Page({
 
@@ -20,13 +21,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -37,7 +31,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.fetchAddressList();
   },
 
   /**
@@ -52,6 +46,13 @@ Page({
         addressList: res
       })
     });
+  },
+
+  // 显示添加地址界面
+  showAddressAdd: function(e) {
+    wx.navigateTo({
+      url: pageUtil.user.address_add,
+    })
   }
 
 })

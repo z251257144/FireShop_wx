@@ -1,0 +1,4 @@
+<!--components/safe-zrea-bar/index.wxml-->
+<view class="bar" style="background-color:{{backgroundColor}}; justify-content:{{justifyContent}}">
+  <slot />
+</view>

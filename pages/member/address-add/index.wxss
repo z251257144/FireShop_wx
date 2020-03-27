@@ -1,1 +1,36 @@
 /* pages/member/address-add/index.wxss */
+
+page {
+  background-color: #F4F5F6
+}
+
+.single-content {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30rpx 30rpx 30rpx 30rpx;
+}
+
+.single-left {
+  width: 180rpx;
+  display: flex;
+  /* justify-content: center;
+  align-items: flex-start; */
+}
+
+.single-right {
+  flex: 1;
+  display: flex;
+  /* justify-content: center;
+  align-items: flex-start; */
+}
+
+.save-button {
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #B4282D;
+  color: #fff;
+  border: null;
+}

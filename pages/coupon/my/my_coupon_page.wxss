@@ -49,10 +49,21 @@ page {
   font-size: 28rpx;
 }
 
-.coupon-money {
+.coupon-money-content {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+}
+
+.coupon-money {
+  font-size: 40rpx;
+  padding-left: 10rpx;
+}
+
+.coupon-money::before {
+  padding-left: 10rpx;
+  content: "￥";
+  font-size: 24rpx;
 }
 
 .coupon-tag {

@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-picker": "@vant/weapp/picker",
+    "van-popup": "@vant/weapp/popup",
+    "region-picker": "/components/region-picker/index"
+  },
+  "navigationBarTitleText": "添加地址",
+  "enablePullDownRefresh": true
 }

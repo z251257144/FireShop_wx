@@ -25,6 +25,6 @@
 
 </block>
 
-<view class="address-add">
-  <text>添加地址</text>
-</view>
+<safe-zrea-bar backgroundColor="#B4282D">
+  <text class="address-add-button" bindtap="showAddressAdd">添加地址</text>
+</safe-zrea-bar>

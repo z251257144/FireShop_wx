@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "empty-view": "/components/empty-view/index"
+    "empty-view": "/components/empty-view/index",
+    "safe-zrea-bar": "/components/safe-zrea-bar/index"
   },
   "navigationBarTitleText": "我的地址",
   "enablePullDownRefresh": true

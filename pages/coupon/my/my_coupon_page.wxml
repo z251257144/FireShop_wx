@@ -20,9 +20,9 @@
 
       <!-- 代金券金额和领取按钮 -->
       <view class="coupon-bottom">
-        <view class="coupon-money">
+        <view class="coupon-money-content">
           <text style="color: #8A8A8A; font-size: 20rpx; padding-bottom: 6rpx;">满{{item.moneyHreshold}}</text>
-          <text style="color: {{item.enable ? '#FEB21C' : '#929292'}}; font-size: 40rpx; padding-left: 10rpx;">￥{{item.money}}</text>
+          <text class="coupon-money" style="color: {{item.enable ? '#FEB21C' : '#929292'}}; ">{{item.money}}</text>
         </view>
         <text class="coupon-button">{{item.enable ? '立即使用' : item.statusStr}}</text>
       </view>

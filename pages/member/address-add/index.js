@@ -1,25 +1,29 @@
 // pages/member/address-add/index.js
+
+const server = require('../../../servers/home_server.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // 普通选择器列表设置,及初始化
+    provinceList: [],
+    provinceIndex: -1,
 
+    cityIndex: -1,
+
+    index: -1,
+
+    show: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    this.fetchProvinceList();
   },
 
   /**
@@ -29,38 +33,34 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  //获取省份列表
+  fetchProvinceList: function() {
+    server.fetchProvinceList();
+    var that = this;
+    server.fetchProvinceList().then((res) => {
+      console.log(res);
+      that.setData({
+        provinceList: res
+      })
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  // 选择国家函数
+  changeProvince: function(e) {
+    // this.setData({ 
+    //   provinceIndex: e.detail.value 
+    // });
 
+      this.setData({ show: true });
+    
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  onClose() {
+    this.setData({ show: false });
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 保存地址
+  saveAddress: function(e) {
+    console.log(e);
   }
 })

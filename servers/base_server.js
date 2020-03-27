@@ -107,4 +107,5 @@ module.exports = {
   getRequest: get,
   postPromise: postPromise,
   getPromise: getPromise,
+  baseUrl: baseUrl,
 }
