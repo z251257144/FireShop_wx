@@ -1,21 +1,3 @@
-<!--components/region-picker/index.wxml-->
-<!-- <text>components/region-picker/index.wxml</text> -->
-
-<!-- <view bindtap="showPicker">
-  <slot />
-</view>
-
-<van-popup show="{{ show }}" position="bottom" bind:close="onClose">
-  <view class="header">
-    <text style="padding: 0 30rpx 0 30rpx;">取消</text>
-    <text class="header-confirm">确定</text>
-  </view>
-
-  <view class="content">
-  </view>
-
-</van-popup> -->
-
 
 <view wx:if='{{flag}}'>
   <view class='wrap {{wrapAnimate}}' style='background:rgba(0,0,0,{{bgOpacity}});'></view>
@@ -35,7 +17,5 @@
     </view>
   </view>
 </view>
-
-<slot />
 
 
