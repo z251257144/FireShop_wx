@@ -1,37 +1,65 @@
-// components/region-picker/index.js
+
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
-    // show: {
-    //   type: Boolean,
-    //   value: false
-    // },
+
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-    show: false,
+    flag: false,
+    wrapAnimate: 'wrapAnimate',
+    bgOpacity: 0,
+    frameAnimate: 'frameAnimate',
+    value: [0],
+    array: [],
+    index: -1,
   },
 
-  /**
-   * 组件的方法列表
-   */
+  properties: {
+    frameTitle: {
+      type: String,
+      value: '标题',
+    }
+  },
+
   methods: {
-    onClose() {
-      console.log("sdafsdfjhklsdfksadfkjsad");
+    show(array, index) {
+      if (index == null || index < 0 ) {
+        index = 0;
+      }
+      
+      this.data.index = index;
+      this.showFrame();
       this.setData({
-        show: false
+        array:array,
+        value: [index]
       });
     },
 
-    showPicker(){
-      this.setData({
-        show: true
-      });
-    }
+    showFrame() {
+      this.setData({ flag: true, wrapAnimate: 'wrapAnimate', frameAnimate: 'frameAnimate' });
+    },
+
+    hideFrame() {
+      const that = this;
+      that.setData({ wrapAnimate: 'wrapAnimateOut', frameAnimate: 'frameAnimateOut' });
+      setTimeout(() => {
+        that.setData({ flag: false })
+      }, 400)
+    },
+
+    catchNone() {
+      //阻止冒泡
+    },
+
+    _confirmEvent() {
+      this.hideFrame();
+      // 点击事件带参传入父级
+      this.triggerEvent('confirmSelect', this.data.index)
+    },
+
+    bindChange: function (e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.data.index = e.detail.value;
+    },
   }
 })

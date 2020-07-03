@@ -1,10 +1,18 @@
 <!--pages/member/address-add/index.wxml-->
 
+<region-picker id="region-picker-province" bind:confirmSelect="confirmSelectProvince">
+</region-picker>
+
+<region-picker id="region-picker-city" bind:confirmSelect="confirmSelectCity">
+</region-picker>
+
+<region-picker id="region-picker-county" bind:confirmSelect="confirmSelectCounty">
+</region-picker>
 
 <form bindsubmit="saveAddress">
   <view class="single-content" style="margin-top: 40rpx;">
     <text class="single-left">姓名</text>
-    <input password type="text" name="name" placeholder="收件人姓名" maxlength="50"  bindinput="nameInput"/>
+    <input type="text" name="name" placeholder="收件人姓名" maxlength="50"  bindinput="nameInput"/>
   </view>
 
   <view class="single-content" style="border-top: 1rpx solid #F3F3F3;">
@@ -14,35 +22,19 @@
 
   <view class="single-content" style="border-top: 1rpx solid #F3F3F3;">
     <text class="single-left">省份</text>
-
-    <!-- <picker bindchange="changeProvince" value="{{provinceIndex}}" range="{{provinceList}}" range-key="name">
-      <view class="single-right">{{provinceIndex < 0 ? '请选择省份' : provinceList[provinceIndex].name}}</view>
-    </picker> -->
-
-    <region-picker>
-      <view class="single-right" bindtap="changeProvince">请选择省份</view>
-    </region-picker>
+    <view class="single-right" bindtap="changeProvince">{{provinceIndex < 0 ? '请选择省份' : provinceList[provinceIndex].name}}</view>
   </view>
 
   <view wx:if="{{provinceIndex >= 0}}" class="single-content" style="border-top: 1rpx solid #F3F3F3;">
     <text class="single-left">城市</text>
 
-    <region-picker></region-picker>
-
-    <!-- <picker bindchange="changeProvince" value="{{provinceIndex}}" range="{{provinceList}}" range-key="name">
-      <view class="single-right">{{provinceIndex < 0 ? '请选择城市' : provinceList[provinceIndex].name}}</view>
-    </picker> -->
+    <view class="single-right" bindtap="changeCity">{{cityIndex < 0 ? '请选择城市' : cityList[cityIndex].name}}</view>
   </view>
 
   <view wx:if="{{cityIndex >= 0}}"  class="single-content" style="border-top: 1rpx solid #F3F3F3;">
     <text class="single-left">区县</text>
-
-    <picker bindchange="changeProvince" value="{{provinceIndex}}" range="{{provinceList}}" range-key="name">
-      <view class="single-right">{{provinceIndex < 0 ? '请选择区县' : provinceList[provinceIndex].name}}</view>
-    </picker>
+    <view class="single-right" bindtap="changeCounty">{{countyIndex < 0 ? '请选择区县' : countyList[countyIndex].name}}</view>
   </view>
-
-
 
   <view class="single-content" style="border-top: 1rpx solid #F3F3F3;">
     <text class="single-left">详细地址</text>

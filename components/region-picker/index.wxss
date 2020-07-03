@@ -1,6 +1,6 @@
 /* components/region-picker/index.wxss */
 
-.header {
+/* .header {
   display: flex;
   flex-direction: row;
   height: 96rpx;
@@ -17,4 +17,70 @@
 .content {
   height: 300rpx;
   padding-bottom:env(safe-area-inset-bottom)
+} */
+
+.header-confirm {
+  padding: 0 30rpx 0 30rpx;
+  color: #B4282D;
+}
+
+
+.wrapAnimate{animation: wrapAnimate 0.5s ease-in-out forwards}
+@keyframes wrapAnimate{
+  0%{}
+  100%{background:rgba(0,0,0,0.35);}
+}
+.wrapAnimateOut{animation: wrapAnimateOut 0.4s ease-in-out forwards}
+@keyframes wrapAnimateOut{
+  0%{background:rgba(0,0,0,0.35);}
+  100%{background:rgba(0,0,0,0);}
+}
+.frameAnimate{animation: frameAnimate 0.5s ease forwards;}
+@keyframes frameAnimate{
+  0%{}
+  100%{opacity: 1;top:0vh;}
+}
+.frameAnimateOut{animation: frameAnimateOut 0.4s ease forwards;}
+@keyframes frameAnimateOut{
+  0%{opacity: 1;top:0vh;}
+  100%{opacity: 0;top:100vh;}
+}
+.frame-wrapper{
+  position: fixed;
+  height:100vh;
+  width:100vw;
+  z-index: 2;
+  top: 50vh;
+}
+
+.frame{
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* padding: 5.9vw 5.9vw 0; */
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  z-index: 3;
+}
+.title-wrapper{
+  height: 96rpx;
+  justify-content: space-between;
+  color: #4a4a4a;
+  border-bottom: 1rpx solid #F3F3F3;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.flex{
+  display: flex;
+  align-items: center;
+}
+.wrap{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

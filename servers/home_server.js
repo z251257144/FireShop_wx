@@ -54,10 +54,12 @@ function fetchRegionList(pid) {
   return base_server.getPromise(url, param);
 }
 
+
 module.exports = {
   fetchTopData: fetchTopData,
   fetchSaleData: fetchSaleData,
   fetchHotData: fetchHotData,
   fetchGoodsList: fetchGoodsList,
-  fetchProvinceList: fetchProvinceList
+  fetchProvinceList: fetchProvinceList,
+  fetchRegionList: fetchRegionList,
 }
