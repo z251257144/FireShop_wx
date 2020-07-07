@@ -38,7 +38,7 @@
 
   <view class="single-content" style="border-top: 1rpx solid #F3F3F3;">
     <text class="single-left">详细地址</text>
-    <input password type="text" name="name" placeholder="街道门牌信息" maxlength="150"  bindinput="addressInput"/>
+    <input type="text" name="name" placeholder="街道门牌信息" maxlength="150"  bindinput="addressInput"/>
   </view>
  
   <view >

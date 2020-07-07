@@ -1,7 +1,10 @@
 // pages/member/address-add/index.js
 
 const server = require('../../../servers/home_server.js')
+const userServer = require('../../../servers/user_server.js')
 const verificater = require('../../../utils/verificater.js')
+const app = getApp()
+const device = require('../../../utils/device.js')
 
 Page({
 
@@ -66,9 +69,7 @@ Page({
       }
     }).catch((err) => {
       if (loading) {
-        wx.showToast({
-          title: err.msg,
-        })
+        device.showToastDelay(err.msg);
       }
     }).finally(() => {
       wx.hideLoading();
@@ -126,9 +127,7 @@ Page({
       }
     }).catch((err) => {
       if (loading) {
-        wx.showToast({
-          title: err.msg,
-        })
+        device.showToastDelay(err.msg);
       }
     }).finally(() => {
       wx.hideLoading();
@@ -186,9 +185,7 @@ Page({
       }
     }).catch((err) => {
       if (loading) {
-        wx.showToast({
-          title: err.msg,
-        })
+        device.showToastDelay(err.msg);
       }
     }).finally(() => {
       wx.hideLoading();
@@ -225,6 +222,34 @@ Page({
     if (!this.checkAddressInfo()) {
       return;
     }
+
+    wx.showLoading({
+      title: '正在提交...',
+    });
+
+    console.log(this.data.provinceList);
+    console.log(this.data.provinceIndex);
+    console.log(this.data.provinceList[this.data.provinceIndex]);
+
+    var token = app.globalData.user.token;
+    var param = { "token": token };
+    param["linkMan"] = this.data.name;
+    param["mobile"] = this.data.mobile;
+    param["address"] = this.data.address;
+    param["provinceId"] = this.data.provinceList[this.data.provinceIndex]["id"];
+    param["cityId"] = this.data.cityList[this.data.cityIndex]["id"];
+    param["districtId"] = this.data.countyList[this.data.countyIndex]["id"];
+
+    userServer.fetchAddAddressList(param).then((res)=>{
+      device.showToastSuccess('地址保存成功！');
+      setTimeout(()=>{
+        wx.navigateBack();
+      }, 1500);
+    }).catch((err)=>{
+      device.showToastDelay(err.msg);
+    }).finally(()=>{
+      wx.hideLoading();
+    });
   },
 
   showMessage: function(message) {
@@ -266,7 +291,9 @@ Page({
     }
 
     return true;
-  }
+  },
+
+  
 
 
 })

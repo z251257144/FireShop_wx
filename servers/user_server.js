@@ -95,6 +95,13 @@ function fetchAddressList(token) {
   return base_server.getPromise("user/shipping-address/list", param);
 }
 
+/**
+ * 添加收货地址
+ */
+function fetchAddAddressList(param) {
+  return base_server.getPromise("user/shipping-address/add", param);
+}
+
 
 
 module.exports = {
@@ -108,5 +115,6 @@ module.exports = {
   fetchDiscountsCoupons: fetchDiscountsCoupons,
   fetchCoupon: fetchCoupon,
   fetchMyCoupons: fetchMyCoupons,
-  fetchAddressList: fetchAddressList
+  fetchAddressList: fetchAddressList,
+  fetchAddAddressList: fetchAddAddressList
 }
